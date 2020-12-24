@@ -1,0 +1,53 @@
+20201224 summary
+
+1. 서블릿 생성과정
+
+2. 메이븐 사용 이유
+		mvn 명령어를 실행 할떄는 pom.xml이 존재하는 폴더에서 진행
+		mvn clean : 메이븐 빌드 과정에서 생성된 결과물 (target) 사제
+		mvn package : java >> class 컴파일,war 파일 생성
+						artifactid-version.war
+
+
+ppt---------------------------
+메이븐 저장소
+pom.xml >> maven || >>> Central repository >> lib plug in 
+				 || >>> local repository[user/.m2]
+
+
+ppt---------------------------
+life cycle 순서를 가지는 단계(phase) 각 단계를 정형화(단계 순서를 바꾸거나 수정 불가)
+
+maven lifecycle >> clean- default - site
+
+maven lifecycle : 프로젝트 빌드
+	compile
+	test
+	package
+	install
+	deploy
+	
+site lifecycle : 프로젝트 정보 설명 문서 생성
+
+
+note---------------------------
+배포 
+
+[[배포 시나리오
+1. 6.jspSpring/depoly/jsp 폴더에 github에서 소스코드를 clone
+	(배포를 위해 6.jspSpring/depoly/jsp 폴더 생성		수기작업
+	1-2 소스코드를 최신화 되도록 github에서 pull
+2. maven을 이용하여 war 파일로 생성
+3. tomcat이 기동중이라고 가정하고 shutdown.sh를 실행(서버 종료)
+4. 2번과정에서 생성된 파일(jsp0.0.1-SNAPOT.war)의 이름을 jsp.war로 수정
+5-0 webapps 폴더에 존재하는 jp폴더와 jsp.war파일을 삭제
+5. 4번과정에서 만들어진 jsp.war 파일을 tomcat의 webapps 폴더에 복사
+6. tomcat을 기동 - startup.sh(서버 시작)
+]]
+
+
+만들어진 war파일을 tomcat의 webapps 폴더에 복사
+단 컨택스트 패스(웹어플리케이션의 이름)을 고려해서 war 파일의 이름을 적절하게 수정
+톰캣 실행실행
+
+
