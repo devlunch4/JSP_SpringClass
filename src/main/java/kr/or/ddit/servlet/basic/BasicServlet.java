@@ -13,7 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BasicServlet extends HttpServlet {
-
+	private static final long serialVersionUID = 1L;
+	
 	private static final Logger logger = LoggerFactory.getLogger(BasicServlet.class);
 
 	@Override
@@ -68,7 +69,7 @@ public class BasicServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		pw.println("<html>");
 		pw.println("	<head>");
-		pw.println("		<tilte>hello servlet world</tilte>");
+		pw.println("		<title>hello servlet world</title>");
 		pw.println("	</head>");
 		pw.println("	<body>");
 		pw.println("Hello, servlet World" + new Date());
