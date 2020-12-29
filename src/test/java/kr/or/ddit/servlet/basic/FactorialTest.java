@@ -27,6 +27,17 @@ public class FactorialTest {
 	// -----------@Before ==> @Test (test2)
 	// -----------@Before ==> @Test (test3)
 
+	// @After : @test 메소드 실행 이후에 실행되는 메소드에 붙이는 어노테이션 / 자원 해제를 주로 담당
+	// @BeforeClass, @AfterClass >>> 클래스 단위로 최초1회씩 호출되는 메소드
+
+	// @BeforeClass
+	// ----@Before ==> @Test (test) ==> @After
+	// ----@Before ==> @Test (test2) ==> @After
+	// ----@Before ==> @Test (test3) ==> @After
+	// @AfterClass
+	// 제한 사항 : static 메소드로 선언을 해야함
+	// --------- ==> 해당 메소드에서 사용하는 필드는 static 필드여야함
+	// -------------- ==>사용 빈도가 떨어지는 원인
 	private static final Logger logger = LoggerFactory.getLogger(FactorialTest.class);
 	private Factorial factorial;
 
@@ -49,7 +60,7 @@ public class FactorialTest {
 
 		/*** Then 코드를 실행한 결과와 내가 예상한 값이 일치하는지 검증 ***/
 		// 기대값과 결과값인 result 입력
-		assertEquals(120, result);
+		assertEquals(100, result);
 	}
 
 	@Test
