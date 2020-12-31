@@ -1,26 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- 사용하지 않으므로 삭제 <link rel="icon" href="../../favicon.ico"> -->
+
+<title>Signin Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="<%=request.getContextPath() %>/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<%=request.getContextPath() %>/css/signin.css"
+	rel="stylesheet">
+
 </head>
+
 <body>
 
-	<%--개인 정보를 전송하므로 url에 노출되지 않도록 request body 영역에 파라미터를 전송 >> method="POST" --%>
-	<form class="test1"
-		action="<%=request.getContextPath()%>/loginController" method="post">
-		<label>user id : </label><input type="text" name="userid"
-			value="xtest1" /><br>
-		<label>user id : </label><input type="text" name="userid"
-			value="xtest2" /><br>
-		<label>password : </label><input type="password" name="pass"
-			value="xtest3" /><br>
-		<input type="submit" name="btnsend" value="send" />
-	</form>
+	<div class="container">
 
+		<form class="form-signin"
+			action="<%=request.getContextPath()%>/loginController" method="post">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="userid" class="sr-only">userid</label>
+			<input type="text" name="userid" id="inputEmail" class="form-control"
+				placeholder="사용자 계정" required autofocus>
+			<label for="inputPassword" class="sr-only">Password</label> <input
+				type="password" name="pass" value="1234" id="inputPassword" class="form-control"
+				placeholder="Password" required>
+			<div class="checkbox">
+				<label> <input type="checkbox" value="remember-me">
+					Remember me
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				in</button>
+		</form>
+
+	</div>
+	<!-- /container -->
+
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
