@@ -14,16 +14,16 @@
 
 <title>Jsp CLASS - 20201231~</title>
 
-<script src="/js/jquery/jquery-1.12.4.js"></script>
-<link href="<%=request.getContextPath()%>/css/bootstrap.css"
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
 	rel="stylesheet">
-<!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath()%>/css/bootstrap.js"></script>
-<!-- Custom styles for this template -->
+<!-- 무시 주석 내용 Bootstrap core CSS -->
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+<!-- 무시 주석 내용 Custom styles for this template -->
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
@@ -77,7 +77,7 @@
 
 						<div class="blog-post">
 							<h2 class="blog-post-title">JSP</h2>
-							<p class="blog-post-meta">2020.12.31, room 402</p>
+							<p class="blog-post-meta">2020.12.31. Room 402</p>
 
 							<p>jsp를 통한 웹 프로그래밍 학습</p>
 							<hr>

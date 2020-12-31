@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/webapp/jsp Insert title here</title>
+<title>/webapp Insert title here</title>
 </head>
 <body>
 	<%	Date date = new Date();%>	<%-- 스크립틀릿 : 자바 코드를 작성 --%>

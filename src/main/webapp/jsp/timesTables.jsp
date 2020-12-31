@@ -18,7 +18,7 @@ table {
 </head>
 <body>
 	<h1>구구단 출력하기 JSP</h1>
-	<h1>URL 설정 >> http://localhost/TimsTable.jsp</h1>
+	<h1>URL 설정 >> http://localhost/contextPath/TimsTable.jsp</h1>
 	<table>
 		<%
 		for (int i = 1; i < 10; i++) {
@@ -35,5 +35,25 @@ table {
 		}
 		%>
 	</table>
+
+	<hr>
+
+	<h1>구구단 출력하기2 JSP</h1>
+	<h1>out.write(""); 사용</h1>
+
+	<table>
+		<%
+		for (int i = 1; i < 10; i++) {
+			out.write("<tr>");
+
+			for (int j = 2; j < 10; j++) {
+				out.write("<td> " + j + " * " + i + " = " + (j * i) + "</td>");
+
+			}
+			out.write("</tr>");
+		}
+		%>
+	</table>
+	
 </body>
 </html>
