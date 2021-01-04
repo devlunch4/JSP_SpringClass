@@ -1,0 +1,34 @@
+1]두 파라미터의 사이의 끼인수 합 구하기
+ex 1, 10 ==> 55
+
+localhost/CONTEXT_PATH/sumCalculation
+
+get(화면요청)
+start, end parameter를 입력/전송 할 수 있도록 화면구성 (input, form tag사용)
+sumCalculation servlet으로 요청
+(사용자가 start 값을 end 보다 작은 값을 넣는다고 가정)
+
+post(결과 처리)
+logger로 start 파라미터와 end 파라미터 사이의 값을 합으로 계산후 출력
+start와 end 사이의 값을 더하여 session에 “sumResult”키로 저장
+sumResult.jsp로 dispatch forward
+session에 저장된 sumResult 값을 화면에 출력
+
+
+2]두 파라미터의 곱 구하기
+ex : 2, 5 ==> 10
+
+localhost/CONTEXT_PATH/mulCalculation
+
+get(화면요청)
+param1, param2 parameter를 입력/전송 할 수 있도록 화면구성 
+mulCalculation servlet으로 요청
+(사용자가 param1 값을 param2 보다 작은 값을 넣는다고 가정)
+
+post(결과 처리)
+logger로 param1 파라미터와 param2 파라미터 의 곱을 계산후 출력
+param1과 param2 값을 곱하여 session에 “mulResult”키로 저장
+mulResult.jsp로 dispatch forward
+session에 저장된 mulResult 값을 화면에 출력
+
+
