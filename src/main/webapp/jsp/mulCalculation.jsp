@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mulCalculation.jsp</title>
+<title>sumCalculation.jsp</title>
 
 </head>
 <body>
-	<h1>mulCalculation.jsp</h1>
-	시작숫자는 끝숫자보다 작습니다.
+	<h1>sumCalculation.jsp</h1>
+	두 파라미터의 곱
 	<br>
-	<form action="<%=request.getContextPath()%>mulCalculation"
+	<form action="<%=request.getContextPath()%>/mulCalculation"
 		method="post">
 
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>
