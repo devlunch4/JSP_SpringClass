@@ -12,25 +12,30 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet("/sumCalculation")
-public class SumCalculation extends HttpServlet {
+@WebServlet("/sumCalculationt")
+public class SumCalculationt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger logger = LoggerFactory.getLogger(SumCalculation.class);
+	private static final Logger logger = LoggerFactory.getLogger(SumCalculationt.class);
 
-	public SumCalculation() {
+	public SumCalculationt() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+//		response.setContentType("text/html;charset=UTF-8");
+//		response.setCharacterEncoding("UTF-8");
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/jsp/sumCalculation.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/sumView.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		doGet(request, response);
+
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
 		int sum = 0;

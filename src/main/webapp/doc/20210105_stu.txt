@@ -1,0 +1,87 @@
+20210104 stud summary
+
+ppt---------------------------------
+실습--------------------------------
+강사txt-----------------------------
+
+
+
+ppt---------------------------------
+*서버 프로그램 구현 기술
+-흐름 제어와 페이지 모듈화(jsp태그)
+>>JSP 웹 어플리케이션에서 흐름제어
+>>JSP 액션태그를 이용한 페이지 모듈
+
+ppt---------------------------------
+흐름제어
+jsp action tag
+>>JSP에서만 사용가능.
+
+<jsp:forward page="이동할 페이지 명" />
+<jsp:forward path="이동할 경로" />
+
+ppt---------------------------------
+jsp 웹어플리케이션 흐름제어
+include
+동적include/정적include
+includepage에 별도의 파라미터를 추가가능/소스가 합쳐져서 최종 결과가 컴파일 >> 원래부터 하나였던것처럼.
+부하많음/부하적음
+
+우리는 정적 include 사용
+
+ppt---------------------------------
+서버 프로그램 구현기술
+*에러 처리
+-JSP페이지별 에러페이지 지정
+-응답상태 코드별 / 예외 타입별 에러페이지 지정
+-에러페이지 작성
+-에러페이지 우선순위
+
+ppt---------------------------------
+에러처리방법(우선순위
+-jsp지시자 <%@page errorPage="errorPage.jsp" %>
+-예외 타입별 설정 : web.xml
+-응답 상태 코드별 설정 : web.xml 
+
+강사txt-----------------------------
+페이지 모듈화
+1.동적 include
+	RequestDispatcher.include()
+	실행시점
+	
+1.정적 include
+	<%@ include file="" %>
+	컴파일시점
+
+*에러페이지
+1. jsp 페이지별로 errorPage 속성에 에러 발생시 이동할 jsp 파일 기술 (X)
+2. 에러코드 (상태코드)별 예외 페이지 설정
+	web.xml 404, 500
+3. 예외 타입별 예외 페이지 설정
+	시나리오 발생
+	1. ArithmeticException 이 발생되는 jsp 파일을 생성 webapp/jsp/ari.jsp
+	2. ArithmeticException 이 발생 되었을때 응답을 대신 생성해줄 webapp/error/type/ariError.jsp를 생성
+	3. web.xml에 예외 타입별 에러 페이지 설정
+	
+	4. 서버재시작
+	5. localhost/jsp/ari.jsp 로 접속해서 ArithmeticException 발생 하게끔 유도하여
+		설정한 에러 페이지로 이동되는지 확인
+
+
+
+
+
+탐구과제 [상속 관계 확인하기 ]
+1.webapp/error/type/runError.jsp를 생성
+2.RuntimeException 에러가 발생할수 있는 jsp 페이지 생성
+	webapp/jsp/run.jsp를 생성
+3. web.xml에 RuntimeException 예외에 대해 runError.jsp 가 응답을 생성하도록 설정
+4. localhost/jsp/run.jsp 로 접속
+5 ***** 어떤 에러페이지가 나오는지 확인
+6. *** localhost/jsp/ari.jsp 접속시 어떤 에러 페이지로 이동하는 지확인
+7. ArithmeticException, RuntimeException 이 발생한 것은 서버 에러로 볼수 있는데
+	500.html(jsp) 에러페이지에서 응답이 생성되지 않았는데
+	<error-page> 엘레먼트를 기술한 순서가 응답에 영향을 미치는지 확인
+	
+결론 ==> error-page 엘레멘트 기술 순서가 영향을 미치지 않는다
+		예외 타입 에러페이지의 설정이 에러코드 에러페이지 설정보다 우선이다

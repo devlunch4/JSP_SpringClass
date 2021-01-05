@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>sumCalculation.jsp</title>
+<title>sumCalculationt.jsp</title>
 
 </head>
 <body>
-	<h1>sumCalculation.jsp</h1>
+	<h1>sumCalculationt.jsp</h1>
 	더하기 시작숫자는 끝숫자보다 작습니다.
 	<br>
-	<form action="<%=request.getContextPath()%>/sumCalculation"
+	<form action="<%=request.getContextPath()%>/sumCalculationt"
 		method="post">
 
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>

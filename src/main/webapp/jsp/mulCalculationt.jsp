@@ -9,9 +9,9 @@
 </head>
 <body>
 	<h1>sumCalculation.jsp</h1>
-	더하기 시작숫자는 끝숫자보다 작습니다.
+	두 파라미터의 곱
 	<br>
-	<form action="<%=request.getContextPath()%>/sumCalculation"
+	<form action="<%=request.getContextPath()%>/mulCalculationt"
 		method="post">
 
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>

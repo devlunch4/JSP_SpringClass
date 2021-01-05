@@ -15,15 +15,10 @@
 <meta name="author" content="">
 <!-- 사용하지 않으므로 삭제 <link rel="icon" href="../../favicon.ico"> -->
 
-<title>Signin Template for Bootstrap</title>
+<title>Signin Template for Bootstrap **</title>
 
-<!-- Bootstrap core CSS -->
-<link href="<%=request.getContextPath() %>/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="<%=request.getContextPath() %>/css/signin.css"
-	rel="stylesheet">
+<%@ include file="/common/common_lib.jsp"%>
+<%--common_lib.jsp의 내용을 지금 기술되는 부분에 코드를 복사하여 붙여넣기 --%>
 
 </head>
 
@@ -34,12 +29,12 @@
 		<form class="form-signin"
 			action="<%=request.getContextPath()%>/loginController" method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="userid" class="sr-only">userid</label>
-			<input type="text" name="userid" id="inputEmail" class="form-control"
-				placeholder="사용자 계정" required autofocus>
-			<label for="inputPassword" class="sr-only">Password</label> <input
-				type="password" name="pass" value="1234" id="inputPassword" class="form-control"
-				placeholder="Password" required>
+			<label for="userid" class="sr-only">userid</label> <input type="text"
+				name="userid" id="inputEmail" class="form-control"
+				placeholder="사용자 계정" required autofocus> <label
+				for="inputPassword" class="sr-only">Password</label> <input
+				type="password" name="pass" value="1234" id="inputPassword"
+				class="form-control" placeholder="Password" required>
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me">
 					Remember me

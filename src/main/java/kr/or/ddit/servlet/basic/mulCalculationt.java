@@ -12,43 +12,42 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet("/sumCalculation")
-public class SumCalculation extends HttpServlet {
+@WebServlet("/mulCalculationt")
+
+public class mulCalculationt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger logger = LoggerFactory.getLogger(SumCalculation.class);
+	private static final Logger logger = LoggerFactory.getLogger(mulCalculationt.class);
 
-	public SumCalculation() {
+	public mulCalculationt() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/jsp/sumCalculation.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		doGet(request, response);
+
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
-		int sum = 0;
+		int mul =  start * end;
 
-		for (int i = start; i <= end; i++) {
-			sum += i;
-		}
+
 
 		request.setAttribute("start", start);
 		request.setAttribute("end", end);
 
 		logger.debug("start : {} end : {}", start, end);
-		logger.debug("두 숫자의 합 : {}", sum);
+		logger.debug("두 숫자의 곱 : {}", mul);
 
 		HttpSession session = request.getSession();
-		session.setAttribute("sumResult", sum);
+		session.setAttribute("mulResult", mul);
 
-		request.getRequestDispatcher("/jsp/sumResult.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/mulResult.jsp").forward(request, response);
 
 	}
 

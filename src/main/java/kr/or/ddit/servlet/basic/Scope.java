@@ -32,7 +32,7 @@ public class Scope extends HttpServlet {
 		request.setAttribute("request", namescope + "_request");
 
 //		session : 속성명 = session, 속성값 =scope파라미터값 + "_session"
-		//내장된 세션을 호출 후 request의 세션에서 가져온다 
+		// 내장된 세션을 호출 후 request의 세션에서 가져온다
 		HttpSession session = request.getSession();
 		session.setAttribute("session", namescope + "_session");
 
@@ -40,10 +40,9 @@ public class Scope extends HttpServlet {
 		ServletContext application = getServletContext();
 		application.setAttribute("application", namescope + "_application");
 
-		//GET요청에 대해서는 화면을 webapp/jsp/scope.jsp로 응답 생성 위임
+		// GET요청에 대해서는 화면을 webapp/jsp/scope.jsp로 응답 생성 위임
 		request.getRequestDispatcher("/jsp/scopeResult.jsp").forward(request, response);
-		
-		
+
 		System.out.println("request" + " : " + request.getAttribute("request"));
 		System.out.println("session" + " : " + session.getAttribute("session"));
 		System.out.println("application" + " : " + application.getAttribute("application"));
