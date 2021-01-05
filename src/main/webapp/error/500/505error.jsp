@@ -2,5 +2,5 @@
 	pageEncoding="UTF-8"%>
 
 <%="Hello World"%>
-<%="Hello World" x%>
+<%-- <%="Hello World" x%> --%>
 

@@ -29,12 +29,11 @@ public class SumCalculationt extends HttpServlet {
 //		response.setCharacterEncoding("UTF-8");
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/jsp/sumView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/sumCalculation.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
 
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
