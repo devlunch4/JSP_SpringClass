@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  *
  *      </pre>
  */
-public class CookieUtil {
+public class CookieUtil2 {
 
 	/**
 	 * Method : getCookieValue 작성자 : PC-20 변경이력 :
@@ -34,7 +34,7 @@ public class CookieUtil {
 	// cookieName : userid rememberme
 	// return : brown, Y
 
-	private static final Logger logger = LoggerFactory.getLogger(CookieUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(CookieUtil2.class);
 
 	public static String getCookieValue(String cookieStr, String cookieName) {
 

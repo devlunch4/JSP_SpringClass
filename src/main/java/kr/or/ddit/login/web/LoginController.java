@@ -18,9 +18,10 @@ import org.slf4j.LoggerFactory;
 // web.xml에 설정하는 servlet, servlet-mapping을 어노테이션을 통해 설정하는 방법
 @WebServlet("/loginController")
 public class LoginController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	// 요청 메소드와 관련없이 서블릿이 동작하게 하려면
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 사용자가 userid, pass 파라미터를 전송 했다는 가정으로 개발
