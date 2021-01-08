@@ -1,4 +1,4 @@
-package kr.or.ddit.user.repository;
+package kr.or.ddit.user.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -10,13 +10,12 @@ import org.junit.Test;
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 
-public class UserDaoTest {
-
+public class UserServiceTest {
 	// 테이블의 전체 데이터(행) 조회
 	@Test
 	public void selectUserAllTest() {
 		/*** Given ***/
-		UserDaoI userDao = new UserDao();
+		UserServiceI userDao = new UserService();
 
 		/*** When ***/
 		List<UserVo> userList = userDao.selectAllUser();
@@ -30,34 +29,46 @@ public class UserDaoTest {
 	@Test
 	public void selectUserTest() {
 		/*** Given ***/
-		UserDaoI userDao = new UserDao();
+		UserServiceI userDao = new UserService();
 		String userid = "brown";
 
 		/*** When ***/
 		UserVo user = userDao.selectUser(userid);
+
 		/*** Then ***/
 		assertNotNull(user);
 		assertEquals("브라운", user.getUsernm());
 	}
-	
-	
-	//사용자 페이징 조회
+
+	// 사용자 아이디가 존재하지 않을떄 특정 사용자 조회 (확신이 없을때 확인을 위한 테스트 )
+	@Test
+	public void selectUserNotExsistTest() {
+		/*** Given ***/
+		UserServiceI userDao = new UserService();
+		String userid = "brownselectUserNotExsistTest";
+
+		/*** When ***/
+		UserVo user = userDao.selectUser(userid);
+
+		/*** Then ***/
+		// assertNotNull(user);
+		assertEquals("브라운", user.getUsernm());
+	}
+
+	// 사용자 페이징 조회
 	@Test
 	public void selectPagingUserTest() {
 		/*** Given ***/
-		UserDaoI userDao = new UserDao();
-		PageVo pageVo = new PageVo(2,5);
-				
-		
+		UserServiceI userDao = new UserService();
+		PageVo pageVo = new PageVo(2, 5);
+
 		/*** When ***/
-		//List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
-		//List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
-		
+		// List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
+		// List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
+
 		List<UserVo> userList = userDao.selectPagingUser(pageVo);
-		
+
 		/*** Then ***/
 		assertEquals(16, userList.size());
-		
 	}
-
 }

@@ -62,6 +62,15 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4</version>
+		</dependency>
+
+
+
 
 
 		<!-- scope 생략시 (default) compile - 컴파일 과정부터 배포되는 과정까지 해당 라이브러리가 필요함을 의미 
