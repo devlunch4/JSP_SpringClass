@@ -16,6 +16,7 @@ kr.or.ddit.user.controller.PaginUser.java
 	<li><hr></li>
 	<!--  -->
 	<li class="active"><a href="<%=request.getContextPath()%>/allEmp">EMP</a></li>
+	<li class="active"><a href="<%=request.getContextPath()%>/pagingEmp">EMP Paging</a></li>
 	<li class="active"><a
 		href="<%=request.getContextPath()%>/alluser2t">사용자2t</a></li>
 

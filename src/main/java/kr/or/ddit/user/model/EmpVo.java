@@ -1,12 +1,15 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class EmpVo {
 
 	private int empno;
 	private String ename;
 	private String job;
 	private int mgr;
-	private String hiredate;
+	private Date hiredate;
 	private int sal;
 	private int comm;
 	private int deptno;
@@ -47,12 +50,21 @@ public class EmpVo {
 		this.mgr = mgr;
 	}
 
-	public String getHiredate() {
+	public Date getHiredate() {
 		return hiredate;
 	}
 
-	public void setHiredate(String hiredate) {
+	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
+	}
+	
+	
+	public String getHiredate_fmt() {
+		if (this.hiredate == null) {
+			return "";
+		} else {
+			return new SimpleDateFormat("yyyy.MM.dd").format(this.hiredate);
+		}
 	}
 
 	public int getSal() {
@@ -78,5 +90,6 @@ public class EmpVo {
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
+
 
 }

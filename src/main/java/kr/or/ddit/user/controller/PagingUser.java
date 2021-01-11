@@ -70,15 +70,14 @@ public class PagingUser extends HttpServlet {
 
 		Map<String, Object> map = userService.selectPagingUser(pagevo);
 
-		@SuppressWarnings("unchecked")
-		List<UserVo> userList = (List<UserVo>)map.get("userList");
+		List<UserVo> userList = (List<UserVo>) map.get("userList");
 		int userCnt = (int) map.get("userCnt");
 		int pagination = (int) Math.ceil((double) userCnt / pagesize);
-		
+		logger.debug("userCnt 값 : {}, pagination 값 : {}", userCnt, pagination);
 		req.setAttribute("userList", userList);
 		req.setAttribute("pagination", pagination);
+		logger.debug("In /pagingUser doGet() >> Forward : pagingUser.jsp //");
 		req.getRequestDispatcher("/user/pagingUser.jsp").forward(req, resp);
-		logger.debug("In /pagingUser doGet() >> Forward : pagingUser.jsp");
 
 	}
 

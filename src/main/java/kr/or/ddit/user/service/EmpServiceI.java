@@ -1,6 +1,7 @@
 package kr.or.ddit.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.EmpVo;
@@ -14,6 +15,6 @@ public interface EmpServiceI {
 	EmpVo selectOneEmp(int empno);
 
 	// 페이지 처리
-	List<EmpVo> selectPagingEmp(PageVo pagevo);
+	Map<String, Object> selectPagingEmp(PageVo pagevo);
 
 }

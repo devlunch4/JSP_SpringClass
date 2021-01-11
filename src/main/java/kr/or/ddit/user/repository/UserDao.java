@@ -43,9 +43,9 @@ public class UserDao implements UserDaoI {
 	@Override
 	public List<UserVo> selectPagingUser(PageVo pagevo) {
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		List<UserVo> pageList = sqlSession.selectList("users.selectPagingUser",pagevo);
+		List<UserVo> pageList = sqlSession.selectList("users.selectPagingUser", pagevo);
 		sqlSession.close();
-		
+
 		return pageList;
 	}
 
@@ -53,9 +53,9 @@ public class UserDao implements UserDaoI {
 	public int selectAllUserCnt() {
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
 		int userCnt = sqlSession.selectOne("users.selectAllUserCnt");
-		//SELECT COUNT(*) FROM users
+		// SELECT COUNT(*) FROM users
 		sqlSession.close();
-		
+
 		return userCnt;
 	}
 

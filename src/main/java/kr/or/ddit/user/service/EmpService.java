@@ -1,6 +1,8 @@
 package kr.or.ddit.user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.EmpVo;
@@ -21,8 +23,13 @@ public class EmpService implements EmpServiceI {
 	}
 
 	@Override
-	public List<EmpVo> selectPagingEmp(PageVo pagevo) {
-		return empDao.selectPagingEmp(pagevo);
+	public Map<String, Object> selectPagingEmp(PageVo pagevo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<EmpVo> empList = empDao.selectPagingEmp(pagevo);
+		int empCnt = empDao.selectAllEmpCnt();
+		map.put("empList", empList);
+		map.put("empCnt", empCnt);
+		return map;
 	}
 
 }

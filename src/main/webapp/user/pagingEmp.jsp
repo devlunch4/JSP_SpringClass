@@ -1,5 +1,5 @@
+<%@page import="kr.or.ddit.user.model.EmpVo"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>전체사용자페이징리스트</title>
+<title>전체EMP페이징리스트</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -41,25 +41,31 @@
 
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">전체사용자페이징리스트</h2>
+						<h2 class="sub-header">전체EMP페이징리스트</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
-									<th>사용자 아이디</th>
-									<th>사용자 이름</th>
-									<th>사용자 비밀번호</th>
-									<th>등록일시</th>
-									<th>사용자 별명</th>
+									<th>사번</th>
+									<th>사원이름</th>
+									<th>담당역할</th>
+									<th>매니저사번</th>
+									<th>입사일</th>
+									<th>연봉</th>
+									<th>성과급</th>
+									<th>소속부서번호</th>
 								</tr>
 								<%
-								for (UserVo user : (List<UserVo>) request.getAttribute("userList")) {
+								for (EmpVo vo : (List<EmpVo>) request.getAttribute("empList")) {
 								%>
 								<tr>
-									<td><%=user.getUserid()%></td>
-									<td><%=user.getUsernm()%></td>
-									<td><%=user.getPass()%></td>
-									<td><%=user.getReg_dt_fmt()%></td>
-									<td><%=user.getAlias()%></td>
+									<td><%=vo.getEmpno()%></td>
+									<td><%=vo.getEname()%></td>
+									<td><%=vo.getJob()%></td>
+									<td><%=vo.getMgr()%></td>
+									<td><%=vo.getHiredate_fmt()%></td>
+									<td><%=vo.getSal()%></td>
+									<td><%=vo.getComm()%></td>
+									<td><%=vo.getDeptno()%></td>
 								</tr>
 								<%
 								}
@@ -76,7 +82,7 @@
 								for (int i = 1; i <= pagination; i++) {
 								%>
 								<li><a
-									href="<%=request.getContextPath()%>/pagingUser?page=<%=i%>&pageSize=5">
+									href="<%=request.getContextPath()%>/pagingEmp?page=<%=i%>&pageSize=5">
 										<%=i%>
 								</a></li>
 								<%

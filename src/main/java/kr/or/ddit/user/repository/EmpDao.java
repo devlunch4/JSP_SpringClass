@@ -29,9 +29,17 @@ public class EmpDao implements EmpDaoI {
 	@Override
 	public List<EmpVo> selectPagingEmp(PageVo pagevo) {
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		List<EmpVo> empList = sqlSession.selectList("emp.selectPagingUser", pagevo);
+		List<EmpVo> empList = sqlSession.selectList("emp.selectPagingEmp", pagevo);
 		sqlSession.close();
 		return empList;
 	}
 
+	@Override
+	public int selectAllEmpCnt() {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int empCnt = sqlSession.selectOne("emp.selectAllEmpCnt");
+		// SELECT COUNT(*) FROM emp
+		sqlSession.close();
+		return empCnt;
+	}
 }
