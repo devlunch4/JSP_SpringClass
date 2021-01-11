@@ -39,25 +39,35 @@ public class UserDaoTest {
 		assertNotNull(user);
 		assertEquals("브라운", user.getUsernm());
 	}
-	
-	
-	//사용자 페이징 조회
+
+	// 사용자 페이징 조회
 	@Test
 	public void selectPagingUserTest() {
 		/*** Given ***/
 		UserDaoI userDao = new UserDao();
-		PageVo pageVo = new PageVo(2,5);
-				
-		
+		PageVo pageVo = new PageVo(2, 5);
+
 		/*** When ***/
-		//List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
-		//List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
-		
+		// List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
+		// List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
+
 		List<UserVo> userList = userDao.selectPagingUser(pageVo);
-		
+
 		/*** Then ***/
-		assertEquals(16, userList.size());
-		
+		assertEquals(5, userList.size());
+
+	}
+
+	// 전체 사용자 조회
+	@Test
+	public void selectAllUserCntTest() {
+		/*** Given ***/
+		UserDaoI userDao = new UserDao();
+
+		/*** When ***/
+		int userCnt = userDao.selectAllUserCnt();
+		/*** Then ***/
+		assertEquals(16, userCnt);
 	}
 
 }

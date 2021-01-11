@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.EmpVo;
 
 public class EmpServiceTest {
@@ -39,20 +38,21 @@ public class EmpServiceTest {
 		assertEquals("SMITH", user.getEname());
 	}
 
-	// 사용자 페이징 조회
-	@Test
-	public void selectPagingEmpTest() {
-		/*** Given ***/
-		EmpServiceI empDao = new EmpService();
-		PageVo pageVo = new PageVo(2, 5);
+	// 사용자 EMP 페이징 조회
+	// @Test
+//	public void selectPagingEmpTest() {
+	/*** Given ***/
+//		EmpServiceI empDao = new EmpService();
+//		PageVo pageVo = new PageVo(2, 5);
 
-		/*** When ***/
-		// List<PageVo> pageList = empDao.selectPagingUser(page, pageSize);
-		// List<UserVo> empList = empDao.selectPagingUser(page, pageSize);
+	/*** When ***/
+	// List<PageVo> pageList = empDao.selectPagingUser(page, pageSize);
+	// List<UserVo> empList = empDao.selectPagingUser(page, pageSize);
 
-		List<EmpVo> empList = empDao.selectPagingEmp(pageVo);
+	// kr.or.ddit.etc 패키지 paginationTest.java 구현됨.
+	// List<EmpVo> empList = empDao.selectPagingEmp(pageVo);
 
-		/*** Then ***/
-		assertEquals(16, empList.size());
-	}
+	/*** Then ***/
+	// assertEquals(16, empList.size());
+//	}
 }

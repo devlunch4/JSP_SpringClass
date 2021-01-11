@@ -6,8 +6,19 @@
 		href="<%=request.getContextPath()%>/main.jsp">Main <span
 			class="sr-only">(current)</span></a></li>
 	<li class="active"><a href="<%=request.getContextPath()%>/allUser">전체사용자</a></li>
+	<li class="active"><a
+		href="<%=request.getContextPath()%>/pagingUser">전체사용자페이징리스트</a></li>
+	<%--http://localhost/pagingUser?page=1&pageSize=5 요청시
+pagingUser.jsp페엇 페이지에 해당하는 사용자 5명만 출력 되도록 개발
+kr.or.ddit.user.controller.PaginUser.java 
+ --%>
+
+	<li><hr></li>
+	<!--  -->
 	<li class="active"><a href="<%=request.getContextPath()%>/allEmp">EMP</a></li>
-	<li class="active"><a href="<%=request.getContextPath()%>/alluser2t">사용자2t</a></li>
+	<li class="active"><a
+		href="<%=request.getContextPath()%>/alluser2t">사용자2t</a></li>
+
 	<%--
 	/allUser 요청을 처리할 servlet(controller)
 	 kr.or.ddit.user.controller.AllUser

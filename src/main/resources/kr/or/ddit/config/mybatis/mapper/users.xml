@@ -5,15 +5,14 @@
 
 <mapper namespace="users">
 	<!-- Select 된 컬럼과 resultType에 기술된 클래스의 필드 이름이 동일하면 자동으로 값을 넣어준다. -->
-	<select id="selectAllUser"
-		resultType="userVo">
+	<select id="selectAllUser" resultType="userVo">
 		SELECT *
 		FROM users
 	</select>
 
 
-	<select id="selectUser"
-		resultType="userVo" parameterType="String">
+	<select id="selectUser" resultType="userVo"
+		parameterType="String">
 		SELECT *
 		FROM
 		users
@@ -21,19 +20,27 @@
 	</select>
 
 
-	<select id="selectPagingUser"
-		resultType="userVo"
+	<select id="selectPagingUser" resultType="userVo"
 		parameterType="pageVo">
 
 		SELECT *
-			FROM
-				(SELECT ROWNUM rn , a.*
-				FROM
-					(SELECT *
-					FROM users
-					ORDER BY userid) a
-				WHERE ROWNUM &lt;= #{page} * #{pageSize})
-		WHERE rn BETWEEN (#{page} - 1) * #{pageSize} + 1 AND #{page} * #{pageSize}
+		FROM
+		(SELECT ROWNUM rn , a.*
+		FROM
+		(SELECT *
+		FROM
+		users
+		ORDER BY userid) a
+		WHERE ROWNUM &lt;= #{page} * #{pageSize})
+		WHERE
+		rn BETWEEN (#{page} - 1) *
+		#{pageSize} + 1 AND #{page} * #{pageSize}
+	</select>
+
+	<!-- 전체 사용자수 조회 -->
+	<select id="selectAllUserCnt" resultType="int">
+		SELECT COUNT(*) 
+		FROM users
 	</select>
 
 </mapper>

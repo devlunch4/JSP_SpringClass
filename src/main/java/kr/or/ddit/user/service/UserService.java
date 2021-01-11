@@ -1,6 +1,8 @@
 package kr.or.ddit.user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
@@ -21,7 +23,13 @@ public class UserService implements UserServiceI {
 	}
 
 	@Override
-	public List<UserVo> selectPagingUser(PageVo pagevo) {
-		return userDao.selectPagingUser(pagevo);
+	public Map<String, Object> selectPagingUser(PageVo pagevo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<UserVo> userList = userDao.selectPagingUser(pagevo);
+		int userCnt = userDao.selectAllUserCnt();
+		map.put("userList", userList);
+		map.put("userCnt", userCnt);
+
+		return map;
 	}
 }

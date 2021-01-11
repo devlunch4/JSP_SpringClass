@@ -22,4 +22,6 @@ public interface UserDaoI {
 	//페이지 처리 
 	List<UserVo> selectPagingUser(PageVo pagevo);
 	
+	//사용자 전체수 조회
+	int selectAllUserCnt();
 }

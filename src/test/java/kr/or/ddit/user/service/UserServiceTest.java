@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -45,14 +46,14 @@ public class UserServiceTest {
 	public void selectUserNotExsistTest() {
 		/*** Given ***/
 		UserServiceI userDao = new UserService();
-		String userid = "brownselectUserNotExsistTest";
+		String userid = "brown";
 
 		/*** When ***/
 		UserVo user = userDao.selectUser(userid);
 
 		/*** Then ***/
-		// assertNotNull(user);
-		assertEquals("브라운", user.getUsernm());
+		assertNotNull(user);
+		//assertEquals("브라운", user.getUserid());
 	}
 
 	// 사용자 페이징 조회
@@ -66,9 +67,9 @@ public class UserServiceTest {
 		// List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
 		// List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
 
-		List<UserVo> userList = userDao.selectPagingUser(pageVo);
+		Map<String, Object> userList = userDao.selectPagingUser(pageVo);
 
 		/*** Then ***/
-		assertEquals(16, userList.size());
+		assertEquals(2, userList.size());
 	}
 }

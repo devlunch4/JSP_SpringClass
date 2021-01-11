@@ -13,7 +13,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>사용자2t</title>
+<title>전체사용자페이징리스트t</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -41,7 +41,7 @@
 
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자2t</h2>
+						<h2 class="sub-header">전체사용자페이징리스트t</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
@@ -71,11 +71,11 @@
 
 						<div class="text-center">
 							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
+								<li><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=5">1</a></li>
+								<li><a href="<%=request.getContextPath()%>/pagingUser?page=2&pageSize=5">2</a></li>
+								<li><a href="<%=request.getContextPath()%>/pagingUser?page=3&pageSize=5">3</a></li>
+								<li><a href="<%=request.getContextPath()%>/pagingUser?page=4&pageSize=5">4</a></li>
+								<li><a href="<%=request.getContextPath()%>/pagingUser?page=5&pageSize=5">5</a></li>
 							</ul>
 						</div>
 					</div>
