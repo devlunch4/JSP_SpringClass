@@ -7,6 +7,7 @@
 			class="sr-only">(current)</span></a></li>
 	<li class="active"><a href="<%=request.getContextPath()%>/allUser">전체사용자</a></li>
 	<li class="active"><a href="<%=request.getContextPath()%>/allEmp">EMP</a></li>
+	<li class="active"><a href="<%=request.getContextPath()%>/alluser2t">사용자2t</a></li>
 	<%--
 	/allUser 요청을 처리할 servlet(controller)
 	 kr.or.ddit.user.controller.AllUser

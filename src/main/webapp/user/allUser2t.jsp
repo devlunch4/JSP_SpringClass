@@ -14,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>allUser</title>
+<title>사용자2t</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -42,7 +42,7 @@
 
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자</h2>
+						<h2 class="sub-header">사용자2t</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
@@ -53,20 +53,16 @@
 									<th>사용자 별명</th>
 								</tr>
 								<%
-								List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
-								if (userList != null) {
-									for (int i = 0; i < userList.size(); i++) {
-										UserVo vo = userList.get(i);
+								for (UserVo user : (List<UserVo>) request.getAttribute("userList")) {
 								%>
 								<tr>
-									<td><%=vo.getUserid()%></td>
-									<td><%=vo.getUsernm()%></td>
-									<td><%=vo.getPass()%></td>
-									<td><%=vo.getReg_dt()%></td>
-									<td><%=vo.getAlias()%></td>
+									<td><%=user.getUserid()%></td>
+									<td><%=user.getUsernm()%></td>
+									<td><%=user.getPass()%></td>
+									<td><%=user.getReg_dt()%></td>
+									<td><%=user.getAlias()%></td>
 								</tr>
 								<%
-								}
 								}
 								%>
 							</table>

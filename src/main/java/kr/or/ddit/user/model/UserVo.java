@@ -1,11 +1,13 @@
 package kr.or.ddit.user.model;
 
+import java.util.Date;
+
 public class UserVo {
 
 	private String userid;
 	private String usernm;
 	private String pass;
-	private String reg_dt;
+	private Date reg_dt;
 	private String alias;
 //	private String addr1;
 //	private String addr2;
@@ -41,11 +43,11 @@ public class UserVo {
 		this.pass = pass;
 	}
 
-	public String getReg_dt() {
+	public Date getReg_dt() {
 		return reg_dt;
 	}
 
-	public void setReg_dt(String reg_dt) {
+	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
 
