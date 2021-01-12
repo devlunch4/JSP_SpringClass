@@ -21,9 +21,6 @@
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="dashboard.css" rel="stylesheet">
-<link href="blog.css" rel="stylesheet">
 </head>
 
 <body>

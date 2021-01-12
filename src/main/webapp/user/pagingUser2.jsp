@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.common.model.PageVo"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,7 +14,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>사용자2t</title>
+<title>전체사용자페이징리스트</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -21,9 +22,6 @@
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="dashboard.css" rel="stylesheet">
-<link href="blog.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +39,7 @@
 
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자2t</h2>
+						<h2 class="sub-header">전체사용자페이징리스트</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
@@ -70,12 +68,39 @@
 						<a class="btn btn-default pull-right">사용자 등록</a>
 
 						<div class="text-center">
+							<%
+							PageVo pageVo = (PageVo) request.getAttribute("pageVo");
+							int pagination = (int) request.getAttribute("pagination");
+							%>
 							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
+
+								<%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
+								     전체 사용자수 : 16명
+								     페이지 사이즈 : 5
+								     전체 페이지 수 : 4페이지
+								 --%>
+								<li class="prev"><a
+									href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+								</li>
+								<%
+								for (int i = 1; i <= pagination; i++) {
+									if (pageVo.getPage() == i) {
+								%>
+								<li class="active"><span><%=i%></span></li>
+								<%
+								} else {
+								%>
+								<li><a
+									href="<%=request.getContextPath()%>/pagingUser?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%></a></li>
+								<%
+								}
+								%>
+								<%
+								}
+								%>
+								<li class="next"><a
+									href="<%=request.getContextPath()%>/pagingUser?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+								</li>
 							</ul>
 						</div>
 					</div>

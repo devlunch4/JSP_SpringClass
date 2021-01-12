@@ -76,6 +76,7 @@ public class PagingUser extends HttpServlet {
 		logger.debug("userCnt 값 : {}, pagination 값 : {}", userCnt, pagination);
 		req.setAttribute("userList", userList);
 		req.setAttribute("pagination", pagination);
+		req.setAttribute("pagevo", pagevo);
 		logger.debug("In /pagingUser doGet() >> Forward : pagingUser.jsp //");
 		req.getRequestDispatcher("/user/pagingUser.jsp").forward(req, resp);
 
