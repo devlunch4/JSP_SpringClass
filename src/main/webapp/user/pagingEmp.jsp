@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.common.model.PageVo"%>
 <%@page import="kr.or.ddit.user.model.EmpVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,9 +21,27 @@
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+
+<script type="text/javascript">
+	//문서 로딩이 완료되고 나서 실행되는 영역
+	$(function() {
+		$(".emp").on("click", function() {
+			//this : 클릭 이벤트가 발생한 element
+			//data-속성명 >> data-userid >> $(this).data("userid"),
+			//속성명은 대소문자를 무시하고 소문자로 인식
+			//console.log($(this).data("userid"))
+			var empno = $(this).data("empno");
+			$("#empno").val(empno);
+			$("#frm").submit();
+		});
+	});
+</script>
 </head>
 
 <body>
+	<form id="frm" action="<%=request.getContextPath()%>/emp">
+		<input type="hidden" id="empno" name="empno" value="">
+	</form>
 	<!-- 헤더부분 include -->
 	<%@ include file="/common/header.jsp"%>
 	<div class="container-fluid">
@@ -49,7 +68,7 @@
 								<%
 								for (EmpVo vo : (List<EmpVo>) request.getAttribute("empList")) {
 								%>
-								<tr>
+								<tr class="emp" data-empno="<%=vo.getEmpno()%>">
 									<td><%=vo.getEmpno()%></td>
 									<td><%=vo.getEname()%></td>
 									<td><%=vo.getJob()%></td>
@@ -66,18 +85,34 @@
 						</div>
 						<a class="btn btn-default pull-right">사용자 등록</a>
 						<div class="text-center">
+							<%
+							PageVo pageVo = (PageVo) request.getAttribute("pagevo");
+							int pagination = (int) request.getAttribute("pagination");
+							%>
 							<ul class="pagination">
+								<li class="prev"><a
+									href="<%=request.getContextPath()%>/pagingEmp?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+								</li>
 								<%
-								for (int i = 1; i <= (int) request.getAttribute("pagination"); i++) {
+								for (int i = 1; i <= pagination; i++) {
+									if (pageVo.getPage() == i) {
+								%>
+								<li class="active"><span><%=i%></span></li>
+								<%
+								} else {
 								%>
 								<li><a
-									href="<%=request.getContextPath()%>/pagingEmp?page=<%=i%>&pageSize=5">
-										<%=i%>
+									href="<%=request.getContextPath()%>/pagingEmp?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%>
 								</a></li>
 								<%
 								}
+								}
 								%>
+								<li class="next"><a
+									href="<%=request.getContextPath()%>/pagingEmp?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+								</li>
 							</ul>
+
 						</div>
 					</div>
 				</div>

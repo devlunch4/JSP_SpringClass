@@ -32,7 +32,7 @@ public class PagingEmp extends HttpServlet {
 		logger.debug("초기 입력 파라미터 pageParam : {}, req.pageSize : {}", pageParam, pageSizeParam);
 
 		int page = pageParam == null ? 1 : Integer.parseInt(pageParam);
-		int pagesize = pageSizeParam == null ? 5 : Integer.parseInt(pageSizeParam);
+		int pagesize = pageSizeParam == null ? 4 : Integer.parseInt(pageSizeParam);
 
 		logger.debug("세팅 된 page : {}, pageSize : {}", page, pagesize);
 		PageVo pagevo = new PageVo(page, pagesize);
@@ -45,6 +45,7 @@ public class PagingEmp extends HttpServlet {
 		logger.debug("empCnt 값 : {}, pagination 값 : {}", empCnt, pagination);
 		req.setAttribute("empList", empList);
 		req.setAttribute("pagination", pagination);
+		req.setAttribute("pagevo", pagevo);
 		logger.debug("In /PagingEmp doGet() >> Forward : PagingEmp.jsp //");
 		req.getRequestDispatcher("/user/pagingEmp.jsp").forward(req, resp);
 	}
