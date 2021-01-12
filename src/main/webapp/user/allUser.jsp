@@ -2,7 +2,6 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,20 +52,16 @@
 									<th>사용자 별명</th>
 								</tr>
 								<%
-								List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
-								if (userList != null) {
-									for (int i = 0; i < userList.size(); i++) {
-										UserVo vo = userList.get(i);
+								for (UserVo user : (List<UserVo>) request.getAttribute("userList")) {
 								%>
 								<tr>
-									<td><%=vo.getUserid()%></td>
-									<td><%=vo.getUsernm()%></td>
-									<td><%=vo.getPass()%></td>
-									<td><%=vo.getReg_dt()%></td>
-									<td><%=vo.getAlias()%></td>
+									<td><%=user.getUserid()%></td>
+									<td><%=user.getUsernm()%></td>
+									<td><%=user.getPass()%></td>
+									<td><%=user.getReg_dt_fmt()%></td>
+									<td><%=user.getAlias()%></td>
 								</tr>
 								<%
-								}
 								}
 								%>
 							</table>

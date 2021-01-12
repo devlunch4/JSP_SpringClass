@@ -16,10 +16,10 @@ public class UserServiceTest {
 	@Test
 	public void selectUserAllTest() {
 		/*** Given ***/
-		UserServiceI userDao = new UserService();
+		UserServiceI userService = new UserService();
 
 		/*** When ***/
-		List<UserVo> userList = userDao.selectAllUser();
+		List<UserVo> userList = userService.selectAllUser();
 
 		/*** Then ***/
 		assertEquals(16, userList.size());
@@ -30,11 +30,11 @@ public class UserServiceTest {
 	@Test
 	public void selectUserTest() {
 		/*** Given ***/
-		UserServiceI userDao = new UserService();
+		UserServiceI userService = new UserService();
 		String userid = "brown";
 
 		/*** When ***/
-		UserVo user = userDao.selectUser(userid);
+		UserVo user = userService.selectUser(userid);
 
 		/*** Then ***/
 		assertNotNull(user);
@@ -45,11 +45,11 @@ public class UserServiceTest {
 	@Test
 	public void selectUserNotExsistTest() {
 		/*** Given ***/
-		UserServiceI userDao = new UserService();
+		UserServiceI userService = new UserService();
 		String userid = "brown";
 
 		/*** When ***/
-		UserVo user = userDao.selectUser(userid);
+		UserVo user = userService.selectUser(userid);
 
 		/*** Then ***/
 		assertNotNull(user);
@@ -60,16 +60,17 @@ public class UserServiceTest {
 	@Test
 	public void selectPagingUserTest() {
 		/*** Given ***/
-		UserServiceI userDao = new UserService();
+		UserServiceI userService = new UserService();
 		PageVo pageVo = new PageVo(2, 5);
 
 		/*** When ***/
 		// List<PageVo> pageList = userDao.selectPagingUser(page, pageSize);
 		// List<UserVo> userList = userDao.selectPagingUser(page, pageSize);
-
-		Map<String, Object> userList = userDao.selectPagingUser(pageVo);
-
+		Map<String, Object> map = userService.selectPagingUser(pageVo);
+		List<UserVo> userList = (List<UserVo>) map.get("userList");
+		int userCnt = (int) map.get("userCnt");
 		/*** Then ***/
-		assertEquals(2, userList.size());
+		assertEquals(5, userList.size());
+		assertEquals(16, userCnt);
 	}
 }

@@ -71,9 +71,12 @@
 
 						<div class="text-center">
 							<ul class="pagination">
+								<%--pagination 값이 4이므로 1부터 4까지 4번 반복된다
+							전체 사용자수 16명
+							페이지사이즈수 5
+							전체 페이지수 4 --%>
 								<%
-								int pagination = (int) (request.getAttribute("pagination"));
-								for (int i = 1; i <= pagination; i++) {
+								for (int i = 1; i <= (int) request.getAttribute("pagination"); i++) {
 								%>
 								<li><a
 									href="<%=request.getContextPath()%>/pagingUser?page=<%=i%>&pageSize=5">

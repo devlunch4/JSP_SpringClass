@@ -29,5 +29,4 @@ public class Alluser2t extends HttpServlet {
 		req.getRequestDispatcher("/user/allUser2t.jsp").forward(req, resp);
 		logger.debug("In /allUser doGet() >> Forward : allUser2t.jsp");
 	}
-
 }

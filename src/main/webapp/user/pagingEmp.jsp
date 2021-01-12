@@ -78,8 +78,7 @@
 						<div class="text-center">
 							<ul class="pagination">
 								<%
-								int pagination = (int) (request.getAttribute("pagination"));
-								for (int i = 1; i <= pagination; i++) {
+								for (int i = 1; i <= (int) request.getAttribute("pagination"); i++) {
 								%>
 								<li><a
 									href="<%=request.getContextPath()%>/pagingEmp?page=<%=i%>&pageSize=5">
