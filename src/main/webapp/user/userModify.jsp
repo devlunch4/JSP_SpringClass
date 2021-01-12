@@ -39,20 +39,15 @@
 <body>
 	<!-- 헤더부분 include -->
 	<%@ include file="/common/header.jsp"%>
-
 	<div class="col-sm-3 col-md-2 sidebar">
 		<!-- left 프레임 부분 include 위아래는 그리드 개념으로 유지보수시 확인을 위해 남김 -->
 		<%@ include file="/common/left.jsp"%>
 	</div>
-
-
 	<div class="container-fluid">
 		<%
 		UserVo user = (UserVo) request.getAttribute("user");
 		%>
-
 		<div class="row">
-
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 정보 수정</h2>
 				<form class="form-horizontal" role="form"
@@ -103,7 +98,7 @@
 						<label for="addr1" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="<%=user.getAddr1()%>" readonly/>
+								placeholder="주소" value="<%=user.getAddr1()%>" readonly />
 						</div>
 					</div>
 
@@ -119,11 +114,10 @@
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>" readonly/>
+								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>"
+								readonly />
 						</div>
 					</div>
-
-
 
 
 					<div class="form-group">

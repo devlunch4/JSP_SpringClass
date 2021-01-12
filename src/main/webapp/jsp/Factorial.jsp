@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%-- jsp 메소드 , 변수 선언부--%>
 <%@ page import="kr.or.ddit.servlet.basic.Factorial"%>
-
 <%!//메소드 선언
 	//Factorial fac = new Factorial();
 	private int calculate(int n) {

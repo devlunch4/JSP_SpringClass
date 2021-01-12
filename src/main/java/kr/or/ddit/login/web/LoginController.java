@@ -54,7 +54,6 @@ public class LoginController extends HttpServlet {
 
 		String userid = req.getParameter("userid");
 		String pass = req.getParameter("pass");
-
 		UserVo user = userService.selectUser(userid);
 
 		// 로그인 성공 ==> service를 통해 데이터베이스에 저장된 값과 일치할떄
@@ -69,5 +68,4 @@ public class LoginController extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() + "/login.jsp");
 		}
 	}
-
 }

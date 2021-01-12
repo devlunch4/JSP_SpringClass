@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>sumCalculation.jsp</title>
-
 </head>
 <body>
 	<h1>sumCalculation.jsp</h1>
@@ -13,7 +12,6 @@
 	<br>
 	<form action="<%=request.getContextPath()%>/sumCalculation"
 		method="post">
-
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>
 		끝 숫자 입력 : <input type="text" id="end" name="end"><br> <input
 			type="submit" id=btnsubmit value="전송">

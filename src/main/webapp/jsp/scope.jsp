@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>scope.jsp 실습</title>
-
 <script type="text/javascript">
 var test = <%=application.getAttribute("application")%>
 var test = "sally_application";
@@ -15,7 +14,6 @@ var test = "sally_application";
 </script>
 </head>
 <body>
-
 	<form action="<%=request.getContextPath()%>/scope" method="post">
 		<input type="text" id="name-scope" name="name-scope"><br>
 		<input type="submit" id=btnsubmit value="전송">

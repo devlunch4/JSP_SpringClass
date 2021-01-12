@@ -23,7 +23,7 @@
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
 <script type="text/javascript">
-	//문서 로딩이 완료되고 나서 실행되는 영억
+	//문서 로딩이 완료되고 나서 실행되는 영역
 	$(function() {
 		$(".user").on("click", function() {
 			//this : 클릭 이벤트가 발생한 element
@@ -39,23 +39,17 @@
 </head>
 
 <body>
-
 	<form id="frm" action="<%=request.getContextPath()%>/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
-
 	<!-- 헤더부분 include -->
 	<%@ include file="/common/header.jsp"%>
-
 	<div class="container-fluid">
 		<div class="row">
-
 			<div class="col-sm-3 col-md-2 sidebar">
 				<%@ include file="/common/left.jsp"%>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-
 				<div class="row">
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">전체사용자페이징리스트</h2>
@@ -83,9 +77,7 @@
 								%>
 							</table>
 						</div>
-
 						<a class="btn btn-default pull-right">사용자 등록</a>
-
 						<div class="text-center">
 							<%
 							PageVo pageVo = (PageVo) request.getAttribute("pagevo");
@@ -103,7 +95,6 @@
 								for (int i = 1; i <= pagination; i++) {
 									if (pageVo.getPage() == i) {
 								%>
-								<%-- title="<%=i%>" id="lipage<%=i%>" --%>
 								<li class="active"><span><%=i%></span></li>
 								<%
 								} else {
@@ -113,8 +104,6 @@
 								</a></li>
 								<%
 								}
-								%>
-								<%
 								}
 								%>
 								<li class="next"><a

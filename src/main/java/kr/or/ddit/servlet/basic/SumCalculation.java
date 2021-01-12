@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 @WebServlet("/sumCalculation")
 public class SumCalculation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	private static final Logger logger = LoggerFactory.getLogger(SumCalculation.class);
 
 	public SumCalculation() {
@@ -30,26 +29,18 @@ public class SumCalculation extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
 		int sum = 0;
-
 		for (int i = start; i <= end; i++) {
 			sum += i;
 		}
-
 		request.setAttribute("start", start);
 		request.setAttribute("end", end);
-
 		logger.debug("start : {} end : {}", start, end);
 		logger.debug("두 숫자의 합 : {}", sum);
-
 		HttpSession session = request.getSession();
 		session.setAttribute("sumResult", sum);
-
 		request.getRequestDispatcher("/jsp/sumResult.jsp").forward(request, response);
-
 	}
-
 }

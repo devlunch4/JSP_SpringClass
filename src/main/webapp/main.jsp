@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,37 +10,28 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
 <title>Jsp CLASS - 20201231~</title>
-
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-
-
 <!-- 무시 주석 내용 Custom styles for this template -->
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 </head>
-
 <body>
-
 	<!-- 헤더부분 include -->
 	<%@ include file="/common/header.jsp"%>
-
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<!-- left 프레임 부분 include 위아래는 그리드 개념으로 유지보수시 확인을 위해 남김 -->
 				<%@ include file="/common/left.jsp"%>
-
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="blog-header">
 					<h1 class="blog-title">Main</h1>
 					<p class="lead blog-description">Jsp / Spring.</p>
 				</div>
-
 				<div class="row">
 					<div class="col-sm-8 blog-main">
 						<div class="blog-post">

@@ -23,7 +23,7 @@ public class TimeTableServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		PrintWriter pw = response.getWriter();
 
 		String code = "";
@@ -50,14 +50,11 @@ public class TimeTableServlet extends HttpServlet {
 		}
 		code += "</table> ";
 		code += "</body>";
-
 		code += "</html>";
 
 		pw.println(code);
-
 		pw.flush();
 		pw.close();
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -65,5 +62,4 @@ public class TimeTableServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

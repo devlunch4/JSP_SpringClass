@@ -8,14 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 	webapp/index.jsp ==> localhost/index.jsp
 	<br> webapp/image/brown.png
 	<br>
 	<img src="/image/brown.png" />
 	<img src="<%=request.getContextPath()%>/image/brown.png" />
-
-
 </body>
 </html>

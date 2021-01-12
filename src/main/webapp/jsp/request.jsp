@@ -8,7 +8,6 @@
 <title>request.jsp</title>
 </head>
 <body>
-
 	request.getContentType() :
 	<%=request.getContentType()%>
 	<br> request.getMethod() :
@@ -19,6 +18,5 @@
 	<%=request.getContextPath()%>
 	<br> request.getServerPort() :
 	<%=request.getServerPort()%>
-
 </body>
 </html>

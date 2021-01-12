@@ -46,7 +46,5 @@ public class Scope extends HttpServlet {
 		System.out.println("request" + " : " + request.getAttribute("request"));
 		System.out.println("session" + " : " + session.getAttribute("session"));
 		System.out.println("application" + " : " + application.getAttribute("application"));
-
 	}
-
 }

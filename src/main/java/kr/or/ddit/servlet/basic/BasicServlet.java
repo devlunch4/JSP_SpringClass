@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 public class BasicServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 	private static final Logger logger = LoggerFactory.getLogger(BasicServlet.class);
 
 	@Override
@@ -26,7 +25,6 @@ public class BasicServlet extends HttpServlet {
 	// GET POST DELETE PUSH HEAD... : HTTP METHOD
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		logger.debug("test >>> BasicServlet.doGet()");
 
 		// 만약에 log level을 debug 보다 높을 레벨로 설정할 경우
@@ -38,10 +36,8 @@ public class BasicServlet extends HttpServlet {
 		// 중괄호를 사용한다
 		logger.debug("BasicServlet.doGet() userid parameter : {} {}", req.getParameter("userid"),
 				req.getParameter("password"));
-
 		// 기존
 		logger.debug("BasicServlet.doGet() userid parameter : " + req.getParameter("userid"));
-
 		resp.setContentType("text/html;charset=UTF-8");
 
 		// 재정의
@@ -79,5 +75,4 @@ public class BasicServlet extends HttpServlet {
 		pw.flush(); // 더이상 작성할 내용이 없으므로 작업을 마무리 한다
 		pw.close(); // 사용한 자원은 반납
 	}
-
 }

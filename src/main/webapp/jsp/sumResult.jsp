@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>sumRerult.jsp</title>
-
 </head>
 <body>
 	start =

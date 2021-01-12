@@ -9,12 +9,15 @@
 <title>/webapp/jsp Insert title here</title>
 </head>
 <body>
-	<%	Date date = new Date();%>	<%-- 스크립틀릿 : 자바 코드를 작성 --%>
+	<%
+	Date date = new Date();
+	%>
+	<%-- 스크립틀릿 : 자바 코드를 작성 --%>
 	Hello, servlet World.
-	<%= date%>	<%-- 표현식  : 문자열 출력 --%>
+	<%=date%>
+	<%-- 표현식  : 문자열 출력 --%>
 </body>
 </html>
-
 <%--
 	jsp 구성요소
 	1. 지시자 : page의 설정 정보

@@ -53,7 +53,6 @@ public class Factorial {
 //		return fac;
 //	}
 
-	
 	/**
 	 * Method : calculate
 	 * 작성자 : PC-20
@@ -70,5 +69,4 @@ public class Factorial {
 			return n * calculate(n - 1);
 		// return n * calculate(--n);
 	}
-
 }

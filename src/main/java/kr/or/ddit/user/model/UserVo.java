@@ -20,8 +20,6 @@ public class UserVo {
 	public UserVo() {
 	}
 
-
-
 	public String getReg_dt_fmt() {
 		// reg_dt 필드가 null이면 ""문자반환
 		// reg_dt 필드가 null이 아니면
@@ -36,127 +34,85 @@ public class UserVo {
 		}
 	}
 
-
-
 	public String getUserid() {
 		return userid;
 	}
-
-
 
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 
-
-
 	public String getUsernm() {
 		return usernm;
 	}
-
-
 
 	public void setUsernm(String usernm) {
 		this.usernm = usernm;
 	}
 
-
-
 	public String getPass() {
 		return pass;
 	}
-
-
 
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
 
-
-
 	public Date getReg_dt() {
 		return reg_dt;
 	}
-
-
 
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
 
-
-
 	public String getAlias() {
 		return alias;
 	}
-
-
 
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
 
-
-
 	public String getAddr1() {
 		return addr1 == null ? "" : addr1;
 	}
-
-
 
 	public void setAddr1(String addr1) {
 		this.addr1 = addr1;
 	}
 
-
-
 	public String getAddr2() {
 		return addr2 == null ? "" : addr2;
 	}
-
-
 
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
 
-
-
 	public String getZipcode() {
 		return zipcode == null ? "" : zipcode;
 	}
-
-
 
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 
-
-
 	public String getFilename() {
-		return filename  == null ? "" : filename;
+		return filename == null ? "" : filename;
 	}
-
-
 
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
 
-
-
 	public String getRealfilename() {
 		return realfilename == null ? "" : realfilename;
 	}
 
-
-
 	public void setRealfilename(String realfilename) {
 		this.realfilename = realfilename;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -164,7 +120,5 @@ public class UserVo {
 				+ alias + ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + ", filename=" + filename
 				+ ", realfilename=" + realfilename + "]";
 	}
-
-
 
 }

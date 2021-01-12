@@ -57,8 +57,7 @@ public class EmpVo {
 	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
 	}
-	
-	
+
 	public String getHiredate_fmt() {
 		if (this.hiredate == null) {
 			return "";
@@ -90,6 +89,5 @@ public class EmpVo {
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
-
 
 }

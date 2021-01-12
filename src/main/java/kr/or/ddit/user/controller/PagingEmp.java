@@ -42,7 +42,7 @@ public class PagingEmp extends HttpServlet {
 		List<EmpVo> empList = (List<EmpVo>) map.get("empList");
 		int empCnt = (int) map.get("empCnt");
 		int pagination = (int) Math.ceil((double) empCnt / pagesize);
-		logger.debug("empCnt 값 : {}, pagination 값 : {}", empCnt,pagination);
+		logger.debug("empCnt 값 : {}, pagination 값 : {}", empCnt, pagination);
 		req.setAttribute("empList", empList);
 		req.setAttribute("pagination", pagination);
 		logger.debug("In /PagingEmp doGet() >> Forward : PagingEmp.jsp //");

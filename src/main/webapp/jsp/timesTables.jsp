@@ -9,7 +9,6 @@
 table, tr, td {
 	border: 1px solid black;
 }
-
 table {
 	width: 100%;
 	text-align: center;
@@ -35,25 +34,19 @@ table {
 		}
 		%>
 	</table>
-
 	<hr>
-
 	<h1>구구단 출력하기2 JSP</h1>
 	<h1>out.write(""); 사용</h1>
-
 	<table>
 		<%
 		for (int i = 1; i < 10; i++) {
 			out.write("<tr>");
-
 			for (int j = 2; j < 10; j++) {
 				out.write("<td> " + j + " * " + i + " = " + (j * i) + "</td>");
-
 			}
 			out.write("</tr>");
 		}
 		%>
 	</table>
-	
 </body>
 </html>

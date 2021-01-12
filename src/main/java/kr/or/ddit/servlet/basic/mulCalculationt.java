@@ -31,24 +31,16 @@ public class mulCalculationt extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
-
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
 		int mul =  start * end;
 
-
-
 		request.setAttribute("start", start);
 		request.setAttribute("end", end);
-
 		logger.debug("start : {} end : {}", start, end);
 		logger.debug("두 숫자의 곱 : {}", mul);
-
 		HttpSession session = request.getSession();
 		session.setAttribute("mulResult", mul);
-
 		request.getRequestDispatcher("/jsp/mulResult.jsp").forward(request, response);
-
 	}
-
 }
