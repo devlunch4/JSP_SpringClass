@@ -64,6 +64,7 @@ public class RegistUser extends HttpServlet {
 //			}
 //		} catch (Exception e) {
 //			logger.debug("registUser doPost() try 예외발생 >> registUser doPost() 재실행");
+//			req.setAttribute("userVo", userVo);
 //			doGet(req, resp);
 //		}
 
@@ -72,11 +73,14 @@ public class RegistUser extends HttpServlet {
 		logger.debug("insertUser : {}", insertUser);
 		if (insertUser == 1) {
 			// 정상수행
-			logger.debug("registUser doPost() insertUserx()값:1 정상수행 >> /user?userid={} 이동", userid);
-			resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
+			//logger.debug("registUser doPost() insertUserx()값:1 정상수행 >> /user?userid={} 이동", userid);
+			//resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
+			logger.debug("registUser doPost() insertUserx()값:1 정상수행 >> /pagingUser 이동 생성id:{}", userid);
+			resp.sendRedirect(req.getContextPath() + "/pagingUser");
 		} else {
 			// 예외발생시 수행
 			logger.debug("registUser doPost() insertUserx()값:0 예외발생 >> registUser doPost() 재실행");
+			req.setAttribute("userVo", userVo);
 			doGet(req, resp);
 		}
 	}

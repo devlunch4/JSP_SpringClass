@@ -23,10 +23,28 @@
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<%
+UserVo userVo = (UserVo) request.getAttribute("userVo");
+%>
 <script>
-	//주소 검색 버튼이 클릭 되었을 때 다음주소API 팝업을 연다
+	
+
 	$(function() {
-		$("#addrBtn").on("click", function() {
+		
+		//RegistUser servlet 예외 처리
+				<%if (userVo != null) {%>
+					$("#userId").attr('placeholder','입력값 [<%=userVo.getUserid()%>] 는 이미 존재합니다.');
+					$("#userId").val("<%=userVo.getUserid()%>");
+					$("#userNm").val("<%=userVo.getUsernm()%>");
+					$("#pass").val("<%=userVo.getPass()%>");
+					$("#userAlias").val("<%=userVo.getAlias()%>");
+					$("#addr1").val("<%=userVo.getAddr1()%>");
+					$("#addr2").val("<%=userVo.getAddr2()%>");
+					$("#zipcode").val("<%=userVo.getZipcode()%>");
+				<%}%>
+	
+				//주소 검색 버튼이 클릭 되었을 때 다음주소API 팝업을 연다			
+	$("#addrBtn").on("click", function() {
 			new daum.Postcode({
 				oncomplete : function(data) {
 					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
@@ -52,9 +70,7 @@
 		<%@ include file="/common/left.jsp"%>
 	</div>
 	<div class="container-fluid">
-		<%
-		UserVo user = (UserVo) request.getAttribute("user");
-		%>
+
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 등록</h2>
@@ -66,7 +82,7 @@
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" >
+								placeholder="사용자 아이디">
 						</div>
 					</div>
 
@@ -74,7 +90,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" >
+								placeholder="사용자 이름">
 						</div>
 					</div>
 
@@ -82,7 +98,7 @@
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password"  >
+								placeholder="Password">
 						</div>
 					</div>
 
@@ -90,7 +106,7 @@
 						<label for="reg_dt" class="col-sm-2 control-label">사용자등록일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="사용자 등록일 자동 생성"  readonly />
+								placeholder="사용자 등록일 자동 생성" readonly />
 						</div>
 					</div>
 
@@ -98,7 +114,7 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명"  />
+								name="userAlias" placeholder="별명" />
 						</div>
 					</div>
 
@@ -106,7 +122,7 @@
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소 검색 버튼 클릭"  readonly/>
+								placeholder="주소 검색 버튼 클릭" readonly />
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소
@@ -126,8 +142,7 @@
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value=""
-								readonly />
+								name="zipcode" placeholder="우편번호" value="" readonly />
 						</div>
 					</div>
 

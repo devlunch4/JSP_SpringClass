@@ -69,8 +69,13 @@
 			<version>11.2.0.4</version>
 		</dependency>
 
-
-
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+			<scope>provided</scope>
+		</dependency>
 
 
 		<!-- scope 생략시 (default) compile - 컴파일 과정부터 배포되는 과정까지 해당 라이브러리가 필요함을 의미 
