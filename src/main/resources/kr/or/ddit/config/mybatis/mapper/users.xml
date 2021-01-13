@@ -22,7 +22,6 @@
 
 	<select id="selectPagingUser" resultType="userVo"
 		parameterType="pageVo">
-
 		SELECT *
 		FROM
 		(SELECT ROWNUM rn , a.*
@@ -39,9 +38,38 @@
 
 	<!-- 전체 사용자수 조회 -->
 	<select id="selectAllUserCnt" resultType="int">
-		SELECT COUNT(*) 
-		FROM users
+		SELECT COUNT(*)
+		FROM
+		users
 	</select>
+
+	<!-- 사용자 정보 수정 -->
+	<update id="modifyUser" parameterType="userVo">
+		UPDATE users SET usernm =
+		#{usernm},
+		pass = #{pass},
+		reg_dt = #{reg_dt},
+		alias = #{alias},
+		addr1 =
+		#{addr1},
+		addr2 = #{addr2},
+		zipcode = #{zipcode}
+		WHERE userid = #{userid}
+	</update>
+
+	<!-- 사용자 추가 -->
+	<insert id="insertUser" parameterType="userVo">
+		INSERT INTO users 
+		(
+		userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		)
+		VALUES
+		(
+		#{userid}, #{usernm}, #{pass}, 
+		sysdate, #{alias}, #{addr1}, #{addr2},
+		#{zipcode}
+		)
+	</insert>
 
 </mapper>
 

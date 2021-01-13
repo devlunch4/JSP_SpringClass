@@ -21,6 +21,14 @@ public interface UserServiceI {
 	UserVo selectUser(String userid);
 
 	// 페이지 처리
-	Map<String, Object> selectPagingUser(PageVo pagevo);
+	Map<String, Object> selectPagingUser(PageVo pageVo);
 
+	//사용자 정보 수정
+	int modifyUser(UserVo userVo);
+	
+	//사용자 정보 추가
+	int insertUser(UserVo userVo);
+
+	//사용자 정보 추가 - 삼항연산자 사용
+	int insertUserx(UserVo userVo);
 }

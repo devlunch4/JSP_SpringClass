@@ -53,7 +53,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%=user.getUsernm()%>" />
+								placeholder="사용자 이름" value="<%=user.getUsernm()%>" readonly />
 						</div>
 					</div>
 
@@ -61,7 +61,7 @@
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" readonly />
+								placeholder="Password" value="<%=user.getPass()%>"readonly />
 						</div>
 					</div>
 
@@ -77,7 +77,8 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%=user.getAlias()%>" />
+								name="userAlias" placeholder="별명" value="<%=user.getAlias()%>"
+								readonly />
 						</div>
 					</div>
 
@@ -85,7 +86,7 @@
 						<label for="addr1" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="<%=user.getAddr1()%>" />
+								placeholder="주소" value="<%=user.getAddr1()%>" readonly />
 						</div>
 					</div>
 
@@ -93,7 +94,7 @@
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=user.getAddr2()%>" />
+								placeholder="상세주소" value="<%=user.getAddr2()%>" readonly />
 						</div>
 					</div>
 
@@ -101,7 +102,8 @@
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>" />
+								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>"
+								readonly />
 						</div>
 					</div>
 

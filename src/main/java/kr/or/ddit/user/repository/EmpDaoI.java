@@ -14,7 +14,7 @@ public interface EmpDaoI {
 	EmpVo selectOneEmp(int empno);
 
 	// 페이지 처리
-	List<EmpVo> selectPagingEmp(PageVo pagevo);
+	List<EmpVo> selectPagingEmp(PageVo pageVo);
 
 	// EMP 전체수 조회
 	int selectAllEmpCnt();

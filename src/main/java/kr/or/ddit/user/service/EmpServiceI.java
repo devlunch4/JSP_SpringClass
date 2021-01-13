@@ -15,6 +15,6 @@ public interface EmpServiceI {
 	EmpVo selectOneEmp(int empno);
 
 	// 페이지 처리
-	Map<String, Object> selectPagingEmp(PageVo pagevo);
+	Map<String, Object> selectPagingEmp(PageVo pageVo);
 
 }

@@ -23,9 +23,9 @@ public class EmpService implements EmpServiceI {
 	}
 
 	@Override
-	public Map<String, Object> selectPagingEmp(PageVo pagevo) {
+	public Map<String, Object> selectPagingEmp(PageVo pageVo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		List<EmpVo> empList = empDao.selectPagingEmp(pagevo);
+		List<EmpVo> empList = empDao.selectPagingEmp(pageVo);
 		int empCnt = empDao.selectAllEmpCnt();
 		map.put("empList", empList);
 		map.put("empCnt", empCnt);

@@ -20,6 +20,18 @@ public class UserVo {
 	public UserVo() {
 	}
 
+	public UserVo(String userid, String usernm, String pass, Date reg_dt, String alias, String addr1, String addr2,
+			String zipcode) {
+		this.userid = userid;
+		this.usernm = usernm;
+		this.pass = pass;
+		this.reg_dt = reg_dt;
+		this.alias = alias;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.zipcode = zipcode;
+	}
+
 	public String getReg_dt_fmt() {
 		// reg_dt 필드가 null이면 ""문자반환
 		// reg_dt 필드가 null이 아니면

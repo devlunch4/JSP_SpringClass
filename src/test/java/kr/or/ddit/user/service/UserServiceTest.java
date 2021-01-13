@@ -3,6 +3,7 @@ package kr.or.ddit.user.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,8 @@ import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
+import kr.or.ddit.user.repository.UserDao;
+import kr.or.ddit.user.repository.UserDaoI;
 
 public class UserServiceTest {
 	// 테이블의 전체 데이터(행) 조회
@@ -72,5 +75,20 @@ public class UserServiceTest {
 		/*** Then ***/
 		assertEquals(5, userList.size());
 		assertEquals(16, userCnt);
+	}
+	
+	// 사용자 정보 수정
+	@Test
+	public void modifyUserTest() {
+		/*** Given ***/
+		UserServiceI userService = new UserService();
+		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode,
+		UserVo userVo = new UserVo("ddit", "대덕인재", "pass", new Date(), "개발원ori", "대전 중앙로", "3층", "123");
+
+		/*** When ***/
+		int updateCunt = userService.modifyUser(userVo);
+		
+		/*** Then ***/
+		assertEquals(1, updateCunt);
 	}
 }

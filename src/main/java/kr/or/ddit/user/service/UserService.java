@@ -23,13 +23,34 @@ public class UserService implements UserServiceI {
 	}
 
 	@Override
-	public Map<String, Object> selectPagingUser(PageVo pagevo) {
+	public Map<String, Object> selectPagingUser(PageVo pageVo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		List<UserVo> userList = userDao.selectPagingUser(pagevo);
+		List<UserVo> userList = userDao.selectPagingUser(pageVo);
 		int userCnt = userDao.selectAllUserCnt();
 		map.put("userList", userList);
 		map.put("userCnt", userCnt);
 
 		return map;
+	}
+
+	@Override
+	public int modifyUser(UserVo userVo) {
+		return userDao.modifyUser(userVo);
+	}
+
+	@Override
+	public int insertUser(UserVo userVo) {
+		return userDao.insertUser(userVo);
+	}
+
+	@Override
+	public int insertUserx(UserVo userVo) {
+		int insertUserres = 0;
+		try {
+			insertUserres = userDao.insertUser(userVo) == 1 ? 1 : 0;
+			return insertUserres;
+		} catch (Exception e) {
+		}
+		return insertUserres;
 	}
 }

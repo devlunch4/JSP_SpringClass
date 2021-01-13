@@ -12,7 +12,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>UserModify</title>
+<title>RegistUser</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -57,16 +57,16 @@
 		%>
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h2 class="sub-header">사용자 정보 수정</h2>
+				<h2 class="sub-header">사용자 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/userModify" method="post">
-					<input type="hidden" name="userid" value="<%=user.getUserid()%>" />
+					action="<%=request.getContextPath()%>/registUser" method="post">
+					<input type="hidden" name="userid" value="" />
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" value="<%=user.getUserid()%>" readonly />
+								placeholder="사용자 아이디" >
 						</div>
 					</div>
 
@@ -74,7 +74,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%=user.getUsernm()%>" />
+								placeholder="사용자 이름" >
 						</div>
 					</div>
 
@@ -82,7 +82,7 @@
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%=user.getPass()%>" />
+								placeholder="Password"  >
 						</div>
 					</div>
 
@@ -90,7 +90,7 @@
 						<label for="reg_dt" class="col-sm-2 control-label">사용자등록일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="사용자등록일" value="<%=user.getReg_dt_fmt()%>" readonly />
+								placeholder="사용자 등록일 자동 생성"  readonly />
 						</div>
 					</div>
 
@@ -98,7 +98,7 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%=user.getAlias()%>" />
+								name="userAlias" placeholder="별명"  />
 						</div>
 					</div>
 
@@ -106,7 +106,7 @@
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="<%=user.getAddr1()%>" readonly />
+								placeholder="주소 검색 버튼 클릭"  readonly/>
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소
@@ -118,7 +118,7 @@
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=user.getAddr2()%>" />
+								placeholder="상세주소" />
 						</div>
 					</div>
 
@@ -126,7 +126,7 @@
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>"
+								name="zipcode" placeholder="우편번호" value=""
 								readonly />
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">수정 완료</button>
+							<button type="submit" class="btn btn-default">등록 완료</button>
 						</div>
 					</div>
 				</form>
