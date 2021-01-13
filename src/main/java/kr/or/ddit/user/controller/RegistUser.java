@@ -62,17 +62,17 @@ public class RegistUser extends HttpServlet {
 //				logger.debug("registUser doPost() try 정상수행 >> /user?userid={} 이동",userid);
 //				resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
 //			}
-//
 //		} catch (Exception e) {
 //			logger.debug("registUser doPost() try 예외발생 >> registUser doPost() 재실행");
 //			doGet(req, resp);
 //		}
+
 		// ### SERVICE 객체를 사용하여 예외 처리
 		int insertUser = userService.insertUserx(userVo);
-		logger.debug("insertUser : ",insertUser);
+		logger.debug("insertUser : {}", insertUser);
 		if (insertUser == 1) {
 			// 정상수행
-			logger.debug("registUser doPost() insertUserx()값:1 정상수행 >> /user?userid={} 이동",userid);
+			logger.debug("registUser doPost() insertUserx()값:1 정상수행 >> /user?userid={} 이동", userid);
 			resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
 		} else {
 			// 예외발생시 수행
