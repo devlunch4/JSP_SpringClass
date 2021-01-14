@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
-import kr.or.ddit.user.model.EmpVo;
+import kr.or.ddit.emp.model.EmpVo;
+import kr.or.ddit.emp.repository.EmpDao;
+import kr.or.ddit.emp.repository.EmpDaoI;
 
 public class EmpDaoTest {
 

@@ -1,5 +1,5 @@
 <%@page import="kr.or.ddit.common.model.PageVo"%>
-<%@page import="kr.or.ddit.user.model.EmpVo"%>
+<%@page import="kr.or.ddit.emp.model.EmpVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -26,10 +26,6 @@
 	//문서 로딩이 완료되고 나서 실행되는 영역
 	$(function() {
 		$(".emp").on("click", function() {
-			//this : 클릭 이벤트가 발생한 element
-			//data-속성명 >> data-userid >> $(this).data("userid"),
-			//속성명은 대소문자를 무시하고 소문자로 인식
-			//console.log($(this).data("userid"))
 			var empno = $(this).data("empno");
 			$("#empno").val(empno);
 			$("#frm").submit();

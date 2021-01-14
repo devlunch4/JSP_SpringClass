@@ -1,5 +1,5 @@
 
-<%@page import="kr.or.ddit.user.model.EmpVo"%>
+<%@page import="kr.or.ddit.emp.model.EmpVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,16 +24,7 @@
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-	new daum.Postcode({
-		oncomplete : function(data) {
-			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-			// 예제를 참고하여 다양한 활용법을 확인해 보세요.
-			$("#addr1").val(data.roadAddress); // 도로명 주소
-			$("#zipcode").val(data.zonecode); // 우편주소
-		}
-	}).open();
-</script>
+
 
 </head>
 
@@ -50,9 +41,9 @@
 		%>
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h2 class="sub-header">사용자 상세 조회</h2>
+				<h2 class="sub-header">EMP 상세 조회</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/empModify">
+					action="<%=request.getContextPath()%>/empModify" method="post">
 					<input type="hidden" name="empno" value="<%=emp.getEmpno()%>" />
 
 					<div class="form-group">
@@ -122,7 +113,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">수정 완료</button>
+							<button type="submit" class="btn btn-default">EMP 수정 완료</button>
 						</div>
 					</div>
 				</form>

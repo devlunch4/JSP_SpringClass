@@ -1,9 +1,9 @@
-package kr.or.ddit.user.repository;
+package kr.or.ddit.emp.repository;
 
 import java.util.List;
 
 import kr.or.ddit.common.model.PageVo;
-import kr.or.ddit.user.model.EmpVo;
+import kr.or.ddit.emp.model.EmpVo;
 
 public interface EmpDaoI {
 
@@ -18,5 +18,13 @@ public interface EmpDaoI {
 
 	// EMP 전체수 조회
 	int selectAllEmpCnt();
+	
+	// EMP 정보 수정
+	int updateEmp(EmpVo empvo);
 
+	//EMP 정보 추가
+	int insertEmp(EmpVo empvo);
+	
+	//EMP 정보 삭제
+	int deleteEmp(int empno);
 }

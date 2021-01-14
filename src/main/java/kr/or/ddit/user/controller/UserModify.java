@@ -55,8 +55,8 @@ public class UserModify extends HttpServlet {
 		String userNm = req.getParameter("userNm");
 		String pass = req.getParameter("pass");
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 		String reg_dt = req.getParameter("reg_dt");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 		Date reg_dt_fm = null;
 		try {
 			reg_dt_fm = dateFormat.parse(reg_dt);

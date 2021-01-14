@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.EmpVo"%>
+<%@page import="kr.or.ddit.emp.model.EmpVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +19,24 @@
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+
+<script type="text/javascript">
+	//문서 로딩이 완료 되었을때
+		$(function () {
+			$("#modifyBtn").on("click", function () {
+				$("#frm").attr("method","get");
+				$("#frm").attr("action","<%=request.getContextPath()%>/empModify");
+				$("#frm").submit();
+			});
+			
+			$("#deleteBtn").on("click", function () {
+				$("#frm").attr("method","post");
+				$("#frm").attr("action","<%=request.getContextPath()%>/empDelete");
+					$("#frm").submit();
+				});
+	});
+</script>
+
 </head>
 
 <body>
@@ -37,8 +55,7 @@
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 상세 조회</h2>
-				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/empModify">
+				<form class="form-horizontal" role="form" id="frm">
 					<input type="hidden" name="empno" value="<%=emp.getEmpno()%>" />
 
 					<div class="form-group">
@@ -72,8 +89,9 @@
 								placeholder="매니저사번" value="<%=emp.getMgr()%>" readonly />
 						</div>
 					</div>
+					
 					<div class="form-group">
-						<label for="hiredate" class="col-sm-2 control-label">입사일></label>
+						<label for="hiredate" class="col-sm-2 control-label">입사일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="hiredate"
 								name="hiredate" placeholder="입사일"
@@ -105,12 +123,12 @@
 						</div>
 					</div>
 
-
-
-
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="modifyBtn" class="btn btn-default">EMP
+								수정</button>
+							<button type="button" id="deleteBtn" class="btn btn-default">EMP
+								삭제</button>
 						</div>
 					</div>
 				</form>

@@ -29,7 +29,7 @@ public class UserController extends HttpServlet {
 //		3) request 객체에 2)번 조회된 값을 user란 속성으로 저장
 //		4) webapp/user/user.jsp 화면 생성 위임
 
-		logger.debug("UserController 진입완료");
+		logger.debug("doGet() 진입완료");
 		String userid = req.getParameter("userid");
 		logger.debug("userid : {}", userid);
 		UserVo user = userService.selectUser(userid);

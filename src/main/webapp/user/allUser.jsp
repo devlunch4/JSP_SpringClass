@@ -56,15 +56,16 @@
 								%>
 							</table>
 						</div>
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a class="btn btn-default pull-right"
+							href="<%=request.getContextPath()%>/userRegist">사용자 등록</a>
 						<div class="text-center">
-							<ul class="pagination">
+							<!-- 							<ul class="pagination">
 								<li><a href="#">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
 								<li><a href="#">5</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>

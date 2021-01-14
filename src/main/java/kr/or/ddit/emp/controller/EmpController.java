@@ -1,4 +1,4 @@
-package kr.or.ddit.user.controller;
+package kr.or.ddit.emp.controller;
 
 import java.io.IOException;
 
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import kr.or.ddit.user.model.EmpVo;
-import kr.or.ddit.user.service.EmpService;
-import kr.or.ddit.user.service.EmpServiceI;
+import kr.or.ddit.emp.model.EmpVo;
+import kr.or.ddit.emp.service.EmpService;
+import kr.or.ddit.emp.service.EmpServiceI;
 
 @WebServlet("/emp")
 public class EmpController extends HttpServlet {
@@ -29,12 +29,12 @@ public class EmpController extends HttpServlet {
 //		3) request 객체에 2)번 조회된 값을 user란 속성으로 저장
 //		4) webapp/user/user.jsp 화면 생성 위임
 
-		logger.debug("EmpController 진입완료");
+		logger.debug("doGet() 진입완료");
 		int empno = Integer.parseInt(req.getParameter("empno"));
 		logger.debug("empno : {}", empno);
 		EmpVo emp = empService.selectOneEmp(empno);
-		req.setAttribute("empno", empno);
+		req.setAttribute("emp", emp);
 		logger.debug("EmpVo emp 값 : {}, emp.getEname() : {}", emp, emp.getEname());
-		req.getRequestDispatcher("/user/empFrom.jsp").forward(req, resp);
+		req.getRequestDispatcher("/emp/empFrom.jsp").forward(req, resp);
 	}
 }

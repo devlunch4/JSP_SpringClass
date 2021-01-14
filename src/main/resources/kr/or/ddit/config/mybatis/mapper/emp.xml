@@ -13,7 +13,7 @@
 	<select id="selectOneEmp" resultType="empVo" parameterType="int">
 		SELECT *
 		FROM emp
-		WHERE empno = #{value}
+		WHERE empno = #{empno}
 	</select>
 	<select id="selectPagingEmp" resultType="empVo"
 		parameterType="pageVo">
@@ -33,6 +33,38 @@
 		SELECT COUNT(*)
 		FROM emp
 	</select>
+
+	<update id="updateEmp" parameterType="empVo">
+		UPDATE emp 
+		SET ename = #{ename},
+			job = #{job},
+			mgr = #{mgr},
+			hiredate = #{hiredate},
+			sal = #{sal},
+			comm = #{comm},
+			deptno = #{deptno}
+		WHERE empno = #{empno}
+	</update>
+
+
+	<insert id="insertEmp" parameterType="empVo">
+		INSERT INTO emp
+		(
+		empno,
+		ename, job, mgr, hiredate, sal, comm, deptno
+		)
+		VALUES
+		(
+		#{empno},
+		#{ename}, #{job},#{mgr}, #{hiredate}, #{sal}, #{comm},#{deptno}
+		)
+	</insert>
+
+
+	<delete id="deleteEmp" parameterType="int">
+		DELETE emp
+		WHERE empno = #{value}
+	</delete>
 
 </mapper>
   

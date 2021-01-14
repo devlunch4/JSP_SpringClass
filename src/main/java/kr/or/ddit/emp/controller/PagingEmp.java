@@ -1,4 +1,4 @@
-package kr.or.ddit.user.controller;
+package kr.or.ddit.emp.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.common.model.PageVo;
-import kr.or.ddit.user.model.EmpVo;
-import kr.or.ddit.user.service.EmpService;
-import kr.or.ddit.user.service.EmpServiceI;
+import kr.or.ddit.emp.model.EmpVo;
+import kr.or.ddit.emp.service.EmpService;
+import kr.or.ddit.emp.service.EmpServiceI;
 
 @WebServlet("/pagingEmp")
 public class PagingEmp extends HttpServlet {
@@ -26,7 +26,7 @@ public class PagingEmp extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		logger.debug("doGet() 진입완료");
 		String pageParam = req.getParameter("page");
 		String pageSizeParam = req.getParameter("pagesize");
 		logger.debug("초기 입력 파라미터 pageParam : {}, req.pageSize : {}", pageParam, pageSizeParam);
@@ -47,7 +47,7 @@ public class PagingEmp extends HttpServlet {
 		req.setAttribute("pagination", pagination);
 		req.setAttribute("pagevo", pagevo);
 		logger.debug("In /PagingEmp doGet() >> Forward : PagingEmp.jsp //");
-		req.getRequestDispatcher("/user/pagingEmp.jsp").forward(req, resp);
+		req.getRequestDispatcher("/emp/pagingEmp.jsp").forward(req, resp);
 	}
 
 }

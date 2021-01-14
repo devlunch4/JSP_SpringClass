@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.EmpVo"%>
+<%@page import="kr.or.ddit.emp.model.EmpVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -67,13 +67,13 @@
 						</div>
 						<a class="btn btn-default pull-right">사용자 등록</a>
 						<div class="text-center">
-							<ul class="pagination">
+<!-- 							<ul class="pagination">
 								<li><a href="#">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
 								<li><a href="#">5</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>

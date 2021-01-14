@@ -33,7 +33,7 @@ public class PagingUser extends HttpServlet {
 		// doGet()메소드에서 page, pageSize 파라미터가 request 객체에 존재하지 않을때
 		// page 1로, pageSize 5로 생각을 코드를 작성
 		// 파라미터가 존재하면 해당 파라미터를 이용
-
+		logger.debug("doGet() 진입완료");
 		String pageParam = req.getParameter("page");
 		String pageSizeParam = req.getParameter("pagesize");
 		logger.debug("초기 입력 파라미터 pageParam : {}, req.pageSize : {}", pageParam, pageSizeParam);

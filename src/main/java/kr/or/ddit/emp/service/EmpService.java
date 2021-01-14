@@ -1,13 +1,13 @@
-package kr.or.ddit.user.service;
+package kr.or.ddit.emp.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.common.model.PageVo;
-import kr.or.ddit.user.model.EmpVo;
-import kr.or.ddit.user.repository.EmpDao;
-import kr.or.ddit.user.repository.EmpDaoI;
+import kr.or.ddit.emp.model.EmpVo;
+import kr.or.ddit.emp.repository.EmpDao;
+import kr.or.ddit.emp.repository.EmpDaoI;
 
 public class EmpService implements EmpServiceI {
 	private EmpDaoI empDao = new EmpDao();
@@ -32,4 +32,18 @@ public class EmpService implements EmpServiceI {
 		return map;
 	}
 
+	@Override
+	public int updateEmp(EmpVo empVo) {
+		return empDao.updateEmp(empVo);
+	}
+
+	@Override
+	public int insertEmp(EmpVo empVo) {
+		return empDao.insertEmp(empVo);
+	}
+
+	@Override
+	public int deleteEmp(int empno) {
+		return empDao.deleteEmp(empno);
+	}
 }

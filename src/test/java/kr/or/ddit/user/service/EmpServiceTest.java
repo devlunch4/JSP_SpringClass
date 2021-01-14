@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import kr.or.ddit.user.model.EmpVo;
+import kr.or.ddit.emp.model.EmpVo;
+import kr.or.ddit.emp.service.EmpService;
+import kr.or.ddit.emp.service.EmpServiceI;
 
 public class EmpServiceTest {
 	// 테이블의 전체 데이터(행) 조회
