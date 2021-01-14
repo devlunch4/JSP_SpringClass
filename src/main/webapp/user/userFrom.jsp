@@ -33,7 +33,8 @@
 			
 			$("#deleteBtn").on("click", function () {
 				$("#frm").attr("method","post");
-				$("#frm").attr("action","<%=request.getContextPath()%>/userDelete");
+				$("#frm").attr("action","<%=request.getContextPath()%>
+	/userDelete");
 					$("#frm").submit();
 				});
 	});
@@ -60,7 +61,7 @@
 					<input type="hidden" name="userid" value="<%=user.getUserid()%>" />
 
 					<div class="form-group">
-						<label for="userId" class="col-sm-2 control-label">사용자 사진</label>
+						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 							<img
 								src="<%=request.getContextPath()%>/profile/<%=user.getUserid()%>.png">
@@ -72,66 +73,56 @@
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" value="<%=user.getUserid()%>" readonly />
+							<label class="control-label"><%=user.getUserid()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%=user.getUsernm()%>" readonly />
+							<label class="control-label"><%=user.getUsernm()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%=user.getPass()%>" readonly />
+							<label class="control-label"><%=user.getPass()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">사용자등록일</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="사용자등록일" value="<%=user.getReg_dt_fmt()%>" readonly />
+							<label class="control-label"><%=user.getReg_dt_fmt()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%=user.getAlias()%>"
-								readonly />
+							<label class="control-label"><%=user.getAlias()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="addr1" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="<%=user.getAddr1()%>" readonly />
+							<label class="control-label"><%=user.getAddr1()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=user.getAddr2()%>" readonly />
+							<label class="control-label"><%=user.getAddr2()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>"
-								readonly />
+							<label class="control-label"><%=user.getZipcode()%></label>
 						</div>
 					</div>
 
