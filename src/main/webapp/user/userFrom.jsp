@@ -19,6 +19,25 @@
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<script type="text/javascript">
+	//문서 로딩이 완료 되었을때
+		//사용자 수정 : method : get, action = /userModify
+		//사용자 수정 : method : get, action = /userDelete
+		//파라미터는 둘다 userid 하나만 있으면 가능
+		$(function () {
+			$("#modifyBtn").on("click", function () {
+				$("#frm").attr("method","get");
+				$("#frm").attr("action","<%=request.getContextPath()%>/userModify");
+				$("#frm").submit();
+			});
+			
+			$("#deleteBtn").on("click", function () {
+				$("#frm").attr("method","post");
+				$("#frm").attr("action","<%=request.getContextPath()%>/userDelete");
+					$("#frm").submit();
+				});
+	});
+</script>
 </head>
 
 <body>
@@ -37,9 +56,18 @@
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 상세 조회</h2>
-				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/userModify">
+				<form class="form-horizontal" role="form" id="frm">
 					<input type="hidden" name="userid" value="<%=user.getUserid()%>" />
+
+					<div class="form-group">
+						<label for="userId" class="col-sm-2 control-label">사용자 사진</label>
+						<div class="col-sm-10">
+							<img
+								src="<%=request.getContextPath()%>/profile/<%=user.getUserid()%>.png">
+						</div>
+					</div>
+
+
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
@@ -61,7 +89,7 @@
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%=user.getPass()%>"readonly />
+								placeholder="Password" value="<%=user.getPass()%>" readonly />
 						</div>
 					</div>
 
@@ -107,12 +135,12 @@
 						</div>
 					</div>
 
-
-
-
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="modifyBtn" class="btn btn-default">사용자
+								수정</button>
+							<button type="button" id="deleteBtn" class="btn btn-default">사용자
+								삭제</button>
 						</div>
 					</div>
 				</form>

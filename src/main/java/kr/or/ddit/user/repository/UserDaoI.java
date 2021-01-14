@@ -30,4 +30,7 @@ public interface UserDaoI {
 	
 	//사용자 정보 추가
 	int insertUser(UserVo userVo);
+	
+	//사용자 삭제
+	int deleteUser(String userid);
 }

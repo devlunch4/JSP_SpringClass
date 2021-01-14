@@ -75,7 +75,7 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/registUser" method="post">
+					action="<%=request.getContextPath()%>/userRegist" method="post">
 					<input type="hidden" name="userid" value="" />
 
 					<div class="form-group">

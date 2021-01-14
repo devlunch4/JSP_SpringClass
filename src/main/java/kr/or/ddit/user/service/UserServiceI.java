@@ -31,4 +31,7 @@ public interface UserServiceI {
 
 	//사용자 정보 추가 - 삼항연산자 사용
 	int insertUserx(UserVo userVo);
+	
+	//사용자 정보 삭제
+	int deleteUser(String userid);
 }

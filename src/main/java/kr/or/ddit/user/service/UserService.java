@@ -53,4 +53,9 @@ public class UserService implements UserServiceI {
 		}
 		return insertUserres;
 	}
+
+	@Override
+	public int deleteUser(String userid) {
+		return userDao.deleteUser(userid);
+	}
 }

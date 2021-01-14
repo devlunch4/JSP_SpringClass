@@ -12,7 +12,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>RegistUser</title>
+<title>userRegist</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -27,11 +27,9 @@
 UserVo userVo = (UserVo) request.getAttribute("userVo");
 %>
 <script>
-	
-
 	$(function() {
-		
-	//주소 검색 버튼이 클릭 되었을 때 다음주소API 팝업을 연다			
+
+		//주소 검색 버튼이 클릭 되었을 때 다음주소API 팝업을 연다			
 		$("#addrBtn").on("click", function() {
 			new daum.Postcode({
 				oncomplete : function(data) {
@@ -63,7 +61,7 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/registUser" method="post">
+					action="<%=request.getContextPath()%>/userRegist" method="post">
 					<input type="hidden" name="userid" value="" />
 
 					<%
@@ -156,7 +154,7 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 
 					<%
 					String zipcode = request.getParameter("zipcode");
-								zipcode = zipcode == null ? "" : zipcode;
+					zipcode = zipcode == null ? "" : zipcode;
 					%>
 					<div class="form-group">
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>

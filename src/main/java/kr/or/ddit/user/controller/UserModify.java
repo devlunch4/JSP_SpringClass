@@ -31,8 +31,7 @@ public class UserModify extends HttpServlet {
 //		2) userService 객체를 이용하여 파라미터에 해당하는 사용자 정보 조회
 //		3) request 객체에 2)번 조회된 값을 user란 속성으로 저장
 //		4) webapp/user/user.jsp 화면 생성 위임
-
-		logger.debug("ModifyUser 진입완료");
+		logger.debug("ModifyUser doGet()진입완료");
 		String userid = req.getParameter("userid");
 		logger.debug("userid : {}", userid);
 		UserVo user = userService.selectUser(userid);
@@ -45,12 +44,11 @@ public class UserModify extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		logger.debug("UserModify doPost 진입완료");
-		
-		//파라미터를 읽기 전에 실행
-		//servlet의 doPost메소드 마다 실행 필요 ==> Filter
+
+		// 파라미터를 읽기 전에 실행
+		// servlet의 doPost메소드 마다 실행 필요 ==> Filter
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		
 
 		// 값 가져오기
 		String userid = req.getParameter("userid");
@@ -75,6 +73,7 @@ public class UserModify extends HttpServlet {
 		if (updateCnt == 1) {
 			// 정상 수행시
 			// 방법 2: resp.sendRedirect 사용
+			logger.debug("사용자 {} 수정 완료", userid);
 			resp.sendRedirect(req.getContextPath() + "/user?userid=" + userid);
 		} else {
 			// 비정상 수행시
