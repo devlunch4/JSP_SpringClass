@@ -33,8 +33,7 @@
 			
 			$("#deleteBtn").on("click", function () {
 				$("#frm").attr("method","post");
-				$("#frm").attr("action","<%=request.getContextPath()%>
-	/userDelete");
+				$("#frm").attr("action","<%=request.getContextPath()%>/userDelete");
 					$("#frm").submit();
 				});
 	});

@@ -25,7 +25,6 @@
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-
 </head>
 
 <body>
@@ -74,7 +73,7 @@
 						<label for="mgr" class="col-sm-2 control-label">매니저사번</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="mgr" name="mgr"
-								placeholder="매니저사번" value="<%=emp.getMgr()%>" readonly />
+								placeholder="매니저사번" value="<%=emp.getMgr()%>" />
 						</div>
 					</div>
 					<div class="form-group">

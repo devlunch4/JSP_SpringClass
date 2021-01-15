@@ -60,10 +60,9 @@
 		)
 	</insert>
 
-
 	<delete id="deleteEmp" parameterType="int">
 		DELETE emp
-		WHERE empno = #{value}
+		WHERE empno = #{empno}
 	</delete>
 
 </mapper>

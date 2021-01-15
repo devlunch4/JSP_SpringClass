@@ -72,7 +72,7 @@ public class EmpDao implements EmpDaoI {
 	@Override
 	public int deleteEmp(int empno) {
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		int deleteCnt = sqlSession.delete("emp.deleteUser", empno);
+		int deleteCnt = sqlSession.delete("emp.deleteEmp", empno);
 		if (deleteCnt == 1) {
 			sqlSession.commit();
 		} else {

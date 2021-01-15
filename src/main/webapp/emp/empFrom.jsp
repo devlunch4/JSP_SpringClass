@@ -32,7 +32,7 @@
 			$("#deleteBtn").on("click", function () {
 				$("#frm").attr("method","post");
 				$("#frm").attr("action","<%=request.getContextPath()%>/empDelete");
-					$("#frm").submit();
+				$("#frm").submit();
 				});
 	});
 </script>
@@ -54,72 +54,65 @@
 		%>
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h2 class="sub-header">사용자 상세 조회</h2>
+				<h2 class="sub-header">EMP 상세 조회</h2>
 				<form class="form-horizontal" role="form" id="frm">
 					<input type="hidden" name="empno" value="<%=emp.getEmpno()%>" />
 
 					<div class="form-group">
 						<label for="empNo" class="col-sm-2 control-label">사번</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="empNo" name="empNo"
-								placeholder="사번" value="<%=emp.getEmpno()%>" readonly />
+							<label class="control-label" id="empNo"><%=emp.getEmpno()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="ename" class="col-sm-2 control-label">사원이름</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="ename" name="ename"
-								placeholder="사원이름 이름" value="<%=emp.getEname()%>" />
+							<label class="control-label" id="ename"><%=emp.getEname()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="job" class="col-sm-2 control-label">담당역할</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="job" name="job"
-								placeholder="담당역할" value="<%=emp.getJob()%>" />
+							<label class="control-label" id="job"><%=emp.getJob()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="mgr" class="col-sm-2 control-label">매니저사번</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="mgr" name="mgr"
-								placeholder="매니저사번" value="<%=emp.getMgr()%>" readonly />
+							<label class="control-label" id="mgr"><%=emp.getMgr()%></label>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="hiredate" class="col-sm-2 control-label">입사일</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="hiredate"
-								name="hiredate" placeholder="입사일"
-								value="<%=emp.getHiredate_fmt()%>" readonly />
+							<label class="control-label" id="hiredate"><%=emp.getHiredate_fmt()%>
+							</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="sal" class="col-sm-2 control-label">연봉</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="sal" name="sal"
-								placeholder="연봉" value="<%=emp.getSal()%>" />
+							<label class="control-label" id="sal"><%=emp.getSal()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="comm" class="col-sm-2 control-label">성과급</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="comm" name="comm"
-								placeholder="성과급" value="<%=emp.getComm()%>" />
+							<label class="control-label" id="comm"><%=emp.getComm()%></label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="deptno" class="col-sm-2 control-label">소속부서번호</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="deptno" name="deptno"
-								placeholder="소속부서번호" value="<%=emp.getDeptno()%>" />
+							<label class="control-label" id="deptno"><%=emp.getDeptno()%>
+							</label>
 						</div>
 					</div>
 
