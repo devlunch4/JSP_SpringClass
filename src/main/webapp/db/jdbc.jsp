@@ -12,7 +12,7 @@
 <title>db_JDBC</title>
 </head>
 <body>
-
+<h1>JDBC TIME TEST</h1>
 	<%
 	// DB작업에 필요한 객체변수 선언
 	Connection conn = null;

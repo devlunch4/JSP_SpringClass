@@ -84,7 +84,7 @@ public class UserDaoTest {
 
 	}
 
-	// 전체 사용자 조회
+	// 전체 사용자 수 조회
 	@Test
 	public void selectAllUserCntTest() {
 		/*** Given ***/

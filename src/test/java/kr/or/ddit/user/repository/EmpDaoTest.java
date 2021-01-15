@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
@@ -12,8 +14,19 @@ import kr.or.ddit.emp.repository.EmpDao;
 import kr.or.ddit.emp.repository.EmpDaoI;
 
 public class EmpDaoTest {
+	private EmpDaoI empDao;
+	
+	@Before
+	public void setup() {
+		
+	}
+	
+	@After
+	public void tearDown() {
+		empDao.deleteEmp(123);
+	}
 
-	// 테이블의 전체 데이터(행) 조회
+	// EMP 전체 데이터(행) 조회
 	@Test
 	public void selectAllEmpTest() {
 		/*** Given ***/
@@ -27,20 +40,20 @@ public class EmpDaoTest {
 
 	}
 
-	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
+	// EMP 아이디를 이용하여 특정 사용자 정보 조회
 	@Test
 	public void selectOneEmpTest() {
 		/*** Given ***/
 		EmpDaoI empDao = new EmpDao();
-		int empid = 7369;
+		int empno = 7369;
 
 		/*** When ***/
-		EmpVo empone = empDao.selectOneEmp(empid);
+		EmpVo empone = empDao.selectOneEmp(empno);
 		/*** Then ***/
 		assertEquals("SMITH", empone.getEname());
 	}
 
-	// 사용자 페이징 조회
+	// EMP 페이징 조회
 	@Test
 	public void selectPagingEmpTest() {
 		/*** Given ***/
@@ -55,7 +68,18 @@ public class EmpDaoTest {
 
 		/*** Then ***/
 		assertEquals(14, empList.size());
+	}
+	
+	
+	// EMP 전체 수 조회
+	@Test
+	public void selectAllEmpCntTest() {
+		/***Given***/
+		//setup
 
+		/***When***/
+
+		/***Then***/
 	}
 
 }

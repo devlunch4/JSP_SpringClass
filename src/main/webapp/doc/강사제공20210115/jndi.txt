@@ -1,0 +1,35 @@
+<Resource
+auth="Container"
+defaultAutoCommit="false"
+	driverClassName="oracle.jdbc.driver.OracleDriver"
+	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+	initialSize="10"
+	maxActive="100"
+	maxWait="10000"
+	minIdle="10"
+	name="jdbc/oracleDB"
+	password="java"
+	type="javax.sql.DataSource"
+		url="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
+	username="sem"
+	validationQuery="SELECT 1 FROM DUAL" />
+
+
+===========================================================
+
+<ResourceLink 
+type="javax.sql.DataSource"
+name="jdbc/oracleDB"
+global="jdbc/oracleDB"/>
+
+
+
+===========================================================
+
+
+<resource-ref>
+   <description>DB Connection</description>
+   <res-ref-name>jdbc/oracleDB</res-ref-name>
+   <res-type>javax.sql.DataSource</res-type>
+   <res-auth>Container</res-auth>
+</resource-ref>
