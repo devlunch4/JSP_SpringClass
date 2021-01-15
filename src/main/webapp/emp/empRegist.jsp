@@ -1,4 +1,3 @@
-
 <%@page import="kr.or.ddit.emp.model.EmpVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,7 +12,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>EmpModify</title>
+<title>empRegist</title>
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
@@ -24,6 +23,9 @@
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<%
+EmpVo empVo = (EmpVo) request.getAttribute("userVo");
+%>
 
 </head>
 
@@ -40,79 +42,111 @@
 		%>
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h2 class="sub-header">EMP 상세 조회</h2>
+				<h2 class="sub-header">EMP 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/empModify" method="post">
-					<input type="hidden" name="empno" value="<%=emp.getEmpno()%>" />
+					action="<%=request.getContextPath()%>/empRegist" method="post">
+					<input type="hidden" name="empNo" value="" />
 
+					<%
+					String empNo = request.getParameter("empno");
+					empNo = empNo == null ? "" : empNo;
+					%>
 					<div class="form-group">
-						<label for="empNo" class="col-sm-2 control-label">사번</label>
+						<label for="empno" class="col-sm-2 control-label">사번</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="empNo" name="empNo"
-								placeholder="사번" value="<%=emp.getEmpno()%>" readonly />
+							<input type="text" class="form-control" id="empno" name="empno"
+								placeholder="사번" value="<%=empNo%>">
 						</div>
 					</div>
 
+					<%
+					String ename = request.getParameter("ename");
+								ename = ename == null ? "" : ename;
+					%>
 					<div class="form-group">
 						<label for="ename" class="col-sm-2 control-label">사원 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="ename" name="ename"
-								placeholder="사원 이름" value="<%=emp.getEname()%>" />
+								placeholder="사원 이름" value="<%=ename%>">
 						</div>
 					</div>
 
+					<%
+					String job = request.getParameter("job");
+								job = job == null ? "" : job;
+					%>
 					<div class="form-group">
 						<label for="job" class="col-sm-2 control-label">담당역할</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="job" name="job"
-								placeholder="담당역할" value="<%=emp.getJob()%>" />
+								placeholder="담당역할" value="<%=job%>">
 						</div>
 					</div>
 
+					<%
+					String mgr = request.getParameter("mgr");
+								mgr = mgr == null ? "" : mgr;
+					%>
 					<div class="form-group">
 						<label for="mgr" class="col-sm-2 control-label">매니저사번</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="mgr" name="mgr"
-								placeholder="매니저사번" value="<%=emp.getMgr()%>" />
+								placeholder="매니저사번" value="<%=mgr%>" />
 						</div>
 					</div>
+
+					<%
+					String hiredate = request.getParameter("hiredate");
+								hiredate = hiredate == null ? "" : hiredate;
+					%>
 					<div class="form-group">
-						<label for="hiredate" class="col-sm-2 control-label">입사일></label>
+						<label for="hiredate" class="col-sm-2 control-label">입사일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="hiredate"
-								name="hiredate" placeholder="입사일"
-								value="<%=emp.getHiredate_fmt()%>" readonly />
+								name="hiredate" placeholder="입사일" value="<%=hiredate%>" />
 						</div>
 					</div>
 
+					<%
+					String sal = request.getParameter("sal");
+								sal = sal == null ? "" : sal;
+					%>
 					<div class="form-group">
 						<label for="sal" class="col-sm-2 control-label">연봉</label>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="sal" name="sal"
-								placeholder="연봉" value="<%=emp.getSal()%>" />
+								placeholder="연봉" value="<%=sal%>" />
 						</div>
 					</div>
 
+					<%
+					String comm = request.getParameter("comm");
+								comm = comm == null ? "" : comm;
+					%>
 					<div class="form-group">
 						<label for="comm" class="col-sm-2 control-label">성과급</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="comm" name="comm"
-								placeholder="성과급" value="<%=emp.getComm()%>" />
+								placeholder="성과급" value="<%=comm%>" />
 						</div>
 					</div>
 
+					<%
+					String deptno = request.getParameter("deptno");
+								deptno = deptno == null ? "" : deptno;
+					%>
 					<div class="form-group">
 						<label for="deptno" class="col-sm-2 control-label">소속부서번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="deptno" name="deptno"
-								placeholder="소속부서번호" value="<%=emp.getDeptno()%>" />
+								placeholder="소속부서번호" value="" value="<%=deptno%>" />
 						</div>
 					</div>
 
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">EMP 수정 완료</button>
+							<button type="submit" class="btn btn-default">EMP 등록 완료</button>
 						</div>
 					</div>
 				</form>
