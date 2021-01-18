@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,7 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<%-- for(1.초기화; 2.조건체크; 4.증감식){
 		3.반복문장
 		}
@@ -27,7 +28,6 @@
 			end - 루프의 end 값
 			begin, end - 루프의 begin, end 값
 	--%>
-
 	<h3>일반 for 문 형태</h3>
 	<c:forEach begin="0" end="10" var="i" varStatus="loop">
 		${i } : 반복시킬 문장 ${loop.index } / ${loop.count } <br>
@@ -55,10 +55,46 @@
 	<br>
 	<hr>
 
-<h3>향상된 for 문 형태 varStatus 설정 </h3>	
+	<h3>향상된 for 문 형태 varStatus 설정</h3>
 	<c:forEach items="${rangers }" var="ranger" varStatus="loopr">
 	loopr ${loopr.index } : ${ranger } <br>
 	</c:forEach>
+	<br>
+	<hr>
 
+	<h3>map 타입 객체 루프를 통해 담겨진 값 확인하기</h3>
+	<%
+	Map<String, String> map = new HashMap<String, String>();
+	map.put("userid", "brown");
+	map.put("usernm", "브라운");
+	map.put("alias", "곰");
+	request.setAttribute("ranger", map);
+	//map, list
+	//map : 순차적으로 접근이 아닌, 특정 키에 의해 원하는 값을 확인하고 싶을떄
+	//list : 순차적으로 접근하고 싶을떄
+	//for(String str : list) ==> 리스트에 담겨있는 모든 값에 대해 처리
+
+	//map 에 담겨진 모든 값을 확인??
+	for (String key : map.keySet()) {
+		map.get(key);
+	}
+	%>
+	<c:forEach items="${ranger }" var="entry">
+	entry.key : ${entry.key } /  entry.value : ${entry.value }<br>
+	</c:forEach>
+
+	<br>
+	<hr>
+
+	<h3>url 작성</h3>
+	<a href="/userRegist">사용자 등록1</a>
+	<a href="${cp }/userRegist">사용자 등록2</a>
+	<a href="${pageContext.request.contextPath }/userRegist">사용자 등록3</a>
+	
+	<br>var 속성을 적용하지 않은 경우 : 태그를 작성한 곳에 출력
+	<c:url value="/userRegist" />
+	<br>var 속성을 적용한 경우 : var 속성으로 저장만 된다(el을 통해 활용)
+	<c:url value="/userRegist" var="url" />
+	<br>url : ${url }
 </body>
 </html>

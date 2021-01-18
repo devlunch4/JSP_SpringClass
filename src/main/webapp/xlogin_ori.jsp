@@ -12,7 +12,7 @@
 
 	<%--개인 정보를 전송하므로 url에 노출되지 않도록 request body 영역에 파라미터를 전송 >> method="POST" --%>
 	<form class="test1"
-		action="${pageContext.request.contextPath}/loginController" method="post">
+		action="${pageContext.request.contextPath }/loginController" method="post">
 		<label>user id : </label><input type="text" name="userid"
 			value="xtest1" /><br>
 		<label>user id : </label><input type="text" name="userid"

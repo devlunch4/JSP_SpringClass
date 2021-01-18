@@ -17,9 +17,9 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath}/css/dashboard.css"
+<link href="${pageContext.request.contextPath }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
 
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
@@ -42,7 +42,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">EMP 상세 조회</h2>
 				<form class="form-horizontal" role="form"
-					action="${pageContext.request.contextPath}/empModify" method="post">
+					action="${pageContext.request.contextPath }/empModify" method="post">
 					<input type="hidden" name="empno" value="<%=emp.getEmpno()%>" />
 
 					<div class="form-group">

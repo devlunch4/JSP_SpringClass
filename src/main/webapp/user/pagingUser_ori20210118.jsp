@@ -19,9 +19,9 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css"
+<link href="${pageContext.request.contextPath}/css/blog.css"
 	rel="stylesheet">
 
 <script type="text/javascript">
@@ -41,7 +41,7 @@
 </head>
 
 <body>
-	<form id="frm" action="${pageContext.request.contextPath }/user">
+	<form id="frm" action="${pageContext.request.contextPath}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	<!-- 헤더부분 include -->
@@ -65,9 +65,9 @@
 									<th>사용자 별명</th>
 								</tr>
 
-								<c:forEach items="${userList}" var="user" varStatus="loop">
+								<c:forEach items="${userList}" var="user">
 									<tr class="user" data-userid="${user.userid }">
-										<td>loopIndex ${loop.index} ${user.userid }</td>
+										<td>${user.userid }</td>
 										<td>${user.usernm }</td>
 										<td>${user.pass }</td>
 										<td>${user.getReg_dt_fmt() }</td>
@@ -78,7 +78,7 @@
 						</div>
 
 						<a class="btn btn-default pull-right"
-							href="${pageContext.request.contextPath }/userRegist">사용자 등록</a>
+							href="${pageContext.request.contextPath}/userRegist">사용자 등록</a>
 						<div class="text-center">
 							<ul class="pagination">
 								<%--pagination 값이 4이므로 1부터 4까지 4번 반복된다
@@ -86,24 +86,24 @@
 							페이지사이즈수 5
 							전체 페이지수 4 --%>
 								<li class="prev"><a
-									href="${pageContext.request.contextPath }/pagingUser?page=1&pageSize=${pageVo.pageSize }">«</a>
+									href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}">«</a>
 								</li>
 
 								<c:forEach begin="1" end="${pagination }" var="i">
 									<c:choose>
-										<c:when test="${pageVo.page == i }">
+										<c:when test="${pageVo.getPage()} == ${i }">
 											<li class="active"><span>${i }</span></li>
 										</c:when>
 										<c:otherwise>
 											<li><a
-												href="${pageContext.request.contextPath }/pagingUser?page=${i }&pageSize=${pageVo.pageSize }">${i }
+												href="${pageContext.request.contextPath}/pagingUser?page=${i }&pageSize=${pageVo.getPageSize()}">${i }
 											</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
 
 								<li class="next"><a
-									href="${pageContext.request.contextPath }/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize }">»</a>
+									href="${pageContext.request.contextPath}/pagingUser?page=${pagination }&pageSize=${pageVo.getPageSize()}">»</a>
 								</li>
 							</ul>
 						</div>
