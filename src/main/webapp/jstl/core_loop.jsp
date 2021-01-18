@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,11 +26,38 @@
 			count - 루프실행수
 			end - 루프의 end 값
 			begin, end - 루프의 begin, end 값
-		
---%>
+	--%>
+
 	<h3>일반 for 문 형태</h3>
 	<c:forEach begin="0" end="10" var="i" varStatus="loop">
 		${i } : 반복시킬 문장 ${loop.index } / ${loop.count } <br>
+	</c:forEach>
+
+	<h3>향상된 for 문 형태</h3>
+	<%
+	List<String> rangers = new ArrayList<String>();
+	rangers.add("brown");
+	rangers.add("cony");
+	rangers.add("sally");
+	rangers.add("moon");
+	rangers.add("james");
+	request.setAttribute("rangers", rangers);
+
+	//for(String ranger : rangers){
+	//		}
+	//for(String ranger : (List<String>) request.getAttribute("rangers")){
+	//		}
+	//==
+	%>
+	<c:forEach items="${rangers }" var="ranger">
+	${ranger } <br>
+	</c:forEach>
+	<br>
+	<hr>
+
+<h3>향상된 for 문 형태 varStatus 설정 </h3>	
+	<c:forEach items="${rangers }" var="ranger" varStatus="loopr">
+	loopr ${loopr.index } : ${ranger } <br>
 	</c:forEach>
 
 </body>

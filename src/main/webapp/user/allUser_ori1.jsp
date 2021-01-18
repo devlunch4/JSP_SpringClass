@@ -43,16 +43,19 @@
 									<th>등록일시</th>
 									<th>사용자 별명</th>
 								</tr>
-								
-								<c:forEach items="${userList}" var="user" >
-									<tr>
-										<td>foreach ${user.userid }</td>
-										<td>${user.usernm }</td>
-										<td>${user.pass }</td>
-										<td>${user.getReg_dt_fmt() }</td>
-										<td>${user.alias }</td>
-									</tr>
-								</c:forEach>
+								<%
+								for (UserVo user : (List<UserVo>) request.getAttribute("userList")) {
+								%>
+								<tr>
+									<td><%=user.getUserid()%></td>
+									<td><%=user.getUsernm()%></td>
+									<td><%=user.getPass()%></td>
+									<td><%=user.getReg_dt_fmt()%></td>
+									<td><%=user.getAlias()%></td>
+								</tr>
+								<%
+								}
+								%>
 							</table>
 						</div>
 						<a class="btn btn-default pull-right"
