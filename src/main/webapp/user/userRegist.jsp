@@ -64,75 +64,51 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 					action="<%=request.getContextPath()%>/userRegist" method="post">
 					<input type="hidden" name="userid" value="" />
 
-					<%
-					String userId = request.getParameter("userId");
-					userId = userId == null ? "" : userId;
-					%>
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" value="<%=userId%>">
+								placeholder="사용자 아이디" value="${param.userid}">
 						</div>
 					</div>
 
-					<%
-					String userNm = request.getParameter("userNm");
-					userNm = userNm == null ? "" : userNm;
-					%>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%=userNm%>">
+								placeholder="사용자 이름" value="${param.userNm}">
 						</div>
 					</div>
 
-					<%
-					String pass = request.getParameter("pass");
-					pass = pass == null ? "" : pass;
-					%>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%=pass%>">
+								placeholder="Password" value="${param.pass}">
 						</div>
 					</div>
 
-					<%
-					String reg_dt = request.getParameter("reg_dt");
-					reg_dt = reg_dt == null ? "" : reg_dt;
-					%>
 					<div class="form-group">
 						<label for="reg_dt" class="col-sm-2 control-label">사용자등록일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="사용자 등록일" value="<%=reg_dt%>" />
+								placeholder="사용자 등록일" value="${param.reg_dt}" />
 						</div>
 					</div>
 
-					<%
-					String userAlias = request.getParameter("userAlias");
-					userAlias = userAlias == null ? "" : userAlias;
-					%>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%=userAlias%>" />
+								name="userAlias" placeholder="별명" value="${param.userAlias}" />
 						</div>
 					</div>
 
-					<%
-					String addr1 = request.getParameter("addr1");
-					addr1 = addr1 == null ? "" : addr1;
-					%>
 					<div class="form-group">
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소 검색 버튼 클릭" value="<%=addr1%>" readonly />
+								placeholder="주소 검색 버튼 클릭" value="${param.addr1}" readonly />
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소
@@ -140,27 +116,19 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 						</div>
 					</div>
 
-					<%
-					String addr2 = request.getParameter("addr2");
-					addr2 = addr2 == null ? "" : addr2;
-					%>
 					<div class="form-group">
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=addr2%>" />
+								placeholder="상세주소" value="${param.addr2}" />
 						</div>
 					</div>
 
-					<%
-					String zipcode = request.getParameter("zipcode");
-					zipcode = zipcode == null ? "" : zipcode;
-					%>
 					<div class="form-group">
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="" value="<%=zipcode%>"
+								name="zipcode" placeholder="우편번호" value="${param.zipcode}"
 								readonly />
 						</div>
 					</div>

@@ -57,7 +57,6 @@ public class EmpModify extends HttpServlet {
 		try {
 			hiredate_fm = dateFormat.parse(hiredate);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
