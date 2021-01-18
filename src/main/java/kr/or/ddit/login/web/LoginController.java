@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +61,9 @@ public class LoginController extends HttpServlet {
 		// session에 데이터 베이스를 조회한 사용자 정보를 (userVo)를 저장
 		if (user != null && pass.equals(user.getPass())) {
 			logger.debug("로그인 성공 >> 메인페이지 진입");
+			
+			HttpSession session = req.getSession();
+			session.setAttribute("S_USER", user);
 			req.getRequestDispatcher("/main.jsp").forward(req, resp);
 		}
 		// 로그인 실패
