@@ -1,4 +1,4 @@
-20210115 stud summary
+20210116 stud summary
 
 ppt---------------------------------
 실습--------------------------------
@@ -29,3 +29,22 @@ session.setAttribute("속성명", 속성값);
 
 el 사용시 null 값 처리를 자동으로 함 ==> userRegist.jsp null 처리 간소화
 
+
+<%=request.getContextPath()%> ==> ${pageContext.request.contextPath}
+>> 검색하여 치환
+
+사용법
+${pateContext.}
+${param.}
+${속성명}
+
+
+주의하기!! 사용금지 ${request..}
+
+JSTL CORE 조건 제어(java if)
+if ==> java 단일 if
+choose ==> java if, else if, else
+
+
+JSTL 반복분(for, 향상된 for) *** 많이 사용
+forEach

@@ -10,7 +10,7 @@
 	<h1>sumCalculation.jsp</h1>
 	두 파라미터의 곱
 	<br>
-	<form action="<%=request.getContextPath()%>/mulCalculationt"
+	<form action="${pageContext.request.contextPath}/mulCalculationt"
 		method="post">
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>
 		끝 숫자 입력 : <input type="text" id="end" name="end"><br> <input

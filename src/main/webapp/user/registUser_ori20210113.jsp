@@ -16,9 +16,9 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
@@ -75,7 +75,7 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="<%=request.getContextPath()%>/userRegist" method="post">
+					action="${pageContext.request.contextPath}/userRegist" method="post">
 					<input type="hidden" name="userid" value="" />
 
 					<div class="form-group">

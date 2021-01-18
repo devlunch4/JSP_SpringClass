@@ -16,22 +16,22 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 <script type="text/javascript">
 	//문서 로딩이 완료 되었을때
 		$(function () {
 			$("#modifyBtn").on("click", function () {
 				$("#frm").attr("method","get");
-				$("#frm").attr("action","<%=request.getContextPath()%>/empModify");
+				$("#frm").attr("action","${pageContext.request.contextPath}/empModify");
 				$("#frm").submit();
 			});
 			
 			$("#deleteBtn").on("click", function () {
 				$("#frm").attr("method","post");
-				$("#frm").attr("action","<%=request.getContextPath()%>/empDelete");
+				$("#frm").attr("action","${pageContext.request.contextPath}/empDelete");
 				$("#frm").submit();
 				});
 	});

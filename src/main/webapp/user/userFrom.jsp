@@ -16,9 +16,9 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 <script type="text/javascript">
 	//문서 로딩이 완료 되었을때
 		//사용자 수정 : method : get, action = /userModify
@@ -27,13 +27,13 @@
 		$(function () {
 			$("#modifyBtn").on("click", function () {
 				$("#frm").attr("method","get");
-				$("#frm").attr("action","<%=request.getContextPath()%>/userModify");
+				$("#frm").attr("action","${pageContext.request.contextPath}/userModify");
 				$("#frm").submit();
 			});
 			
 			$("#deleteBtn").on("click", function () {
 				$("#frm").attr("method","post");
-				$("#frm").attr("action","<%=request.getContextPath()%>/userDelete");
+				$("#frm").attr("action","${pageContext.request.contextPath}/userDelete");
 					$("#frm").submit();
 				});
 	});
@@ -63,7 +63,7 @@
 						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 							<img
-								src="<%=request.getContextPath()%>/profile/<%=user.getUserid()%>.png">
+								src="${pageContext.request.contextPath}/profile/<%=user.getUserid()%>.png">
 						</div>
 					</div>
 

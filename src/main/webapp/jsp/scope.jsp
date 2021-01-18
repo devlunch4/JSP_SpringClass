@@ -14,7 +14,7 @@ var test = "sally_application";
 </script>
 </head>
 <body>
-	<form action="<%=request.getContextPath()%>/scope" method="post">
+	<form action="${pageContext.request.contextPath}/scope" method="post">
 		<input type="text" id="name-scope" name="name-scope"><br>
 		<input type="submit" id=btnsubmit value="전송">
 	</form>

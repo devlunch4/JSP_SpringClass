@@ -18,9 +18,9 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 <script type="text/javascript">
 	//문서 로딩이 완료되고 나서 실행되는 영역
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-	<form id="frm" action="<%=request.getContextPath()%>/user">
+	<form id="frm" action="${pageContext.request.contextPath}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	<!-- 헤더부분 include -->
@@ -78,7 +78,7 @@
 							</table>
 						</div>
 						<a class="btn btn-default pull-right"
-							href="<%=request.getContextPath()%>/userRegist">사용자 등록</a>
+							href="${pageContext.request.contextPath}/userRegist">사용자 등록</a>
 						<div class="text-center">
 							<%
 							PageVo pageVo = (PageVo) request.getAttribute("pagevo");
@@ -90,7 +90,7 @@
 							페이지사이즈수 5
 							전체 페이지수 4 --%>
 								<li class="prev"><a
-									href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+									href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
 								</li>
 								<%
 								for (int i = 1; i <= pagination; i++) {
@@ -101,14 +101,14 @@
 								} else {
 								%>
 								<li><a
-									href="<%=request.getContextPath()%>/pagingUser?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%>
+									href="${pageContext.request.contextPath}/pagingUser?page=<%=i%>&pageSize=<%=pageVo.getPageSize()%>"><%=i%>
 								</a></li>
 								<%
 								}
 								}
 								%>
 								<li class="next"><a
-									href="<%=request.getContextPath()%>/pagingUser?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+									href="${pageContext.request.contextPath}/pagingUser?page=<%=pagination%>&pageSize=<%=pageVo.getPageSize()%>">»</a>
 								</li>
 							</ul>
 						</div>

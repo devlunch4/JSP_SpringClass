@@ -10,7 +10,7 @@
 	<h1>sumCalculation.jsp</h1>
 	더하기 시작숫자는 끝숫자보다 작습니다.
 	<br>
-	<form action="<%=request.getContextPath()%>/sumCalculation"
+	<form action="${pageContext.request.contextPath}/sumCalculation"
 		method="post">
 		시작 숫자 입력 : <input type="text" id="start" name="start"><br>
 		끝 숫자 입력 : <input type="text" id="end" name="end"><br> <input
