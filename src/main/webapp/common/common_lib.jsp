@@ -6,9 +6,15 @@
 <link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
 	rel="stylesheet">
 
+
+
 <!-- google jquery -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- bootstrap.js need jquery next set!!!!!  Bootstrap core CSS -->
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+
+<!--  js : jquery -->
+<script src="${pageContext.request.contextPath }/js/jquery-3.5.1.min.js"></script>
+
