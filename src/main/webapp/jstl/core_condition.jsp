@@ -58,7 +58,7 @@
 		<c:when test="${userid == 'moon' }">moon 사용자 입니다</c:when>
 		<c:when test="${userid == 'brown' }">brown 사용자 입니다</c:when>
 		<c:when test="${userid == 'cony' }">cony 사용자 입니다</c:when>
-		<c:otherwise>whe절에 매칭되는 조건이 없습니다.</c:otherwise>
+		<c:otherwise>when 절에 매칭되는 조건이 없습니다.</c:otherwise>
 	</c:choose>
 </body>
 </html>
