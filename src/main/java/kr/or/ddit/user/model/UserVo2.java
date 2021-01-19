@@ -3,7 +3,7 @@ package kr.or.ddit.user.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UserVo {
+public class UserVo2 {
 
 	private String userid;
 	private String usernm;
@@ -17,10 +17,10 @@ public class UserVo {
 	private String realfilename;
 
 	// 대다수의 framework는 기본 생성자를 필요로 한다
-	public UserVo() {
+	public UserVo2() {
 	}
 
-	public UserVo(String userid, String usernm, String pass, Date reg_dt, String alias, String addr1, String addr2,
+	public UserVo2(String userid, String usernm, String pass, Date reg_dt, String alias, String addr1, String addr2,
 			String zipcode) {
 		this.userid = userid;
 		this.usernm = usernm;
@@ -30,6 +30,20 @@ public class UserVo {
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 		this.zipcode = zipcode;
+	}
+
+	public String getReg_dt_fmt() {
+		// reg_dt 필드가 null이면 ""문자반환
+		// reg_dt 필드가 null이 아니면
+		// SimpleDateFormat을 생성하여 yyyy.MM.dd 포맷으로 문자열로 변환 리턴
+		if (this.reg_dt == null) {
+			return "";
+		} else {
+			// SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+			// return sdf.format(this.reg_dt);
+			// 한줄로 만들기
+			return new SimpleDateFormat("yyyy.MM.dd").format(this.reg_dt);
+		}
 	}
 
 	public String getUserid() {

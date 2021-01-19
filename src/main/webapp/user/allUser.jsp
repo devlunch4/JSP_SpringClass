@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자</h2>
+						<h2 class="sub-header">전체 사용자</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
@@ -44,12 +45,12 @@
 									<th>사용자 별명</th>
 								</tr>
 								
-								<c:forEach items="${userList}" var="user" >
+								<c:forEach items="${userList }" var="user" >
 									<tr>
-										<td>foreach ${user.userid }</td>
+										<td>${user.userid }</td>
 										<td>${user.usernm }</td>
 										<td>${user.pass }</td>
-										<td>${user.getReg_dt_fmt() }</td>
+										<td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd"/></td>
 										<td>${user.alias }</td>
 									</tr>
 								</c:forEach>
