@@ -20,7 +20,7 @@ el 사용시 null값 처리를 자동으로 함 ==> registUser.jsp null 처리 �
 
 
 ctrl + h ==> 검색 치환
-<%=request.getContextPath()%> ==> ${pageContext.request.contextPath }
+<%=request.getContextPath()%> ==> ${cp }
 								  ${pageContext.request.contextPath}
 
 <%=request.getContextPath()%>

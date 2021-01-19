@@ -17,9 +17,9 @@
 <title>allUser</title>
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css"
+<link href="${cp }/css/blog.css"
 	rel="stylesheet">
 </head>
 
@@ -57,7 +57,7 @@
 							</table>
 						</div>
 						<a class="btn btn-default pull-right"
-							href="${pageContext.request.contextPath }/userRegist">사용자 등록</a>
+							href="${cp }/userRegist">사용자 등록</a>
 						<div class="text-center">
 							<!-- 							<ul class="pagination">
 								<li><a href="#">1</a></li>

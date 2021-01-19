@@ -1,6 +1,7 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +17,10 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css"
+	rel="stylesheet">
 
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
@@ -59,14 +61,15 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 정보 수정</h2>
 				<form class="form-horizontal" role="form"
-					action="${pageContext.request.contextPath }/userModify" method="post">
-					<input type="hidden" name="userid" value="<%=user.getUserid()%>" />
+					action="${cp }/userModify"
+					method="post">
+					<input type="hidden" name="userid" value="${user.userid }" />
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" value="<%=user.getUserid()%>" readonly />
+								placeholder="사용자 아이디" value="${user.userid }" readonly />
 						</div>
 					</div>
 
@@ -74,7 +77,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%=user.getUsernm()%>" />
+								placeholder="사용자 이름" value="${user.usernm }" />
 						</div>
 					</div>
 
@@ -82,7 +85,7 @@
 						<label for="pass" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%=user.getPass()%>" />
+								placeholder="Password" value="${user.pass}" />
 						</div>
 					</div>
 
@@ -90,7 +93,10 @@
 						<label for="reg_dt" class="col-sm-2 control-label">사용자등록일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="사용자등록일" value="<%=user.getReg_dt_fmt()%>" readonly />
+								placeholder="사용자등록일"
+								value="<fmt:formatDate
+									value="${user.reg_dt }" pattern="yyyy.MM.dd" />"
+								readonly />
 						</div>
 					</div>
 
@@ -98,7 +104,7 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%=user.getAlias()%>" />
+								name="userAlias" placeholder="별명" value="${user.alias }" />
 						</div>
 					</div>
 
@@ -106,7 +112,7 @@
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="<%=user.getAddr1()%>" readonly />
+								placeholder="주소" value="${user.addr1 }%>" readonly />
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소
@@ -118,7 +124,7 @@
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=user.getAddr2()%>" />
+								placeholder="상세주소" value="${user.addr2 }" />
 						</div>
 					</div>
 
@@ -126,7 +132,7 @@
 						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcode"
-								name="zipcode" placeholder="우편번호" value="<%=user.getZipcode()%>"
+								name="zipcode" placeholder="우편번호" value="${user.zipcode }"
 								readonly />
 						</div>
 					</div>

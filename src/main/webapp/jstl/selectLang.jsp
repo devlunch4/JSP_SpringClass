@@ -20,7 +20,7 @@
 </head>
 <body>
 	param.lang : [${param.lang }]
-	<form action="${pageContext.request.contextPath }/jstl/selectLang.jsp">
+	<form action="${cp }/jstl/selectLang.jsp">
 		<select name="lang">
 			<option value="ko">한국어</option>
 			<option value="en">english</option>

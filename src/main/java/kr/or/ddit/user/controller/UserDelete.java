@@ -28,7 +28,7 @@ public class UserDelete extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		logger.debug("userDelete doPost() 진입");
-		String userid = req.getParameter("userId");
+		String userid = req.getParameter("userid");
 		int deleteCnt = 0;
 		try {
 			deleteCnt = userService.deleteUser(userid);

@@ -14,9 +14,9 @@
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
 <!-- 무시 주석 내용 Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 헤더부분 include -->

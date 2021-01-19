@@ -50,7 +50,7 @@
 									<td><%=user.getUserid()%></td>
 									<td><%=user.getUsernm()%></td>
 									<td><%=user.getPass()%></td>
-									<td><%=user.getReg_dt_fmt()%></td>
+									<td><%=user.getReg_dt()%></td>
 									<td><%=user.getAlias()%></td>
 								</tr>
 								<%
