@@ -53,7 +53,7 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 
-	<filter>
+<!-- 	<filter>
 		<filter-name>requestCounterFilter</filter-name>
 		<filter-class>kr.or.ddit.filter.RequestCounterFilter</filter-class>
 	</filter>
@@ -71,8 +71,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-
-
 	<filter>
 		<filter-name>sessionCheckFilter</filter-name>
 		<filter-class>kr.or.ddit.filter.SessionCheckFilter</filter-class>
@@ -80,6 +78,6 @@
 	<filter-mapping>
 		<filter-name>sessionCheckFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
 </web-app>
