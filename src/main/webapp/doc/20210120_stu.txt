@@ -1,0 +1,32 @@
+20210120 stud summary
+
+ppt---------------------------------
+실습--------------------------------
+강사txt-----------------------------
+
+
+강사txt-----------------------------
+Content-Disposition : form-data; name="file"; filename="artworks-000135724632-6eqlj5-t500x500.jpg"
+
+FiltUtil.getFileName(Content-Disposition) 을 테스트 할수 있는 테스트 코드 작성
+==> brown.jpg
+
+
+
+1.사용자가 업로드한 파일명
+2.서버에 저장할떄 사용한 파일명 ==> 중복이 되지 않게
+	UUID ==> 중복되지 않은 문자열 값을 출력 
+	
+
+
+TDD : TEST Driven Development	
+	테스트코드 작성 >> 성공 >> ‘’’새로운 요구사항 >> 테스트코드 >> 실패 >> 운영코드 수정(refactoring)>> 
+							‘’’새로운 요구사항 >> 테스트코드 >> 실패 >> 운영코드 수정 >> 
+							‘’’새로운 요구사항 >> 테스트코드 >> 실패 >> 운영코드 수정 >> 
+
+
+	
+파일업로드시 준비사항
+1.form 태그 enctype 속성 ==> enctype="multipart/form-data"
+2.form 태그 method 속성 ==> method="post"
+3.servlet ==> @MultipartConfig

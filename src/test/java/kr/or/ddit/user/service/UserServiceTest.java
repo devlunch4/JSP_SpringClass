@@ -100,7 +100,8 @@ public class UserServiceTest {
 		/*** Given ***/
 		// UserServiceI userService = new UserService();
 		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode,
-		UserVo userVo = new UserVo("ddit", "대덕인재", "pass", new Date(), "개발원ori", "대전 중앙로", "3층", "123");
+		UserVo userVo = new UserVo("ddit", "대덕인재", "pass", new Date(), "개발원ori", "대전 중앙로", "3층", "123", "testfilename",
+				"testrealfilename");
 
 		/*** When ***/
 		int updateCunt = userService.modifyUser(userVo);
@@ -113,7 +114,8 @@ public class UserServiceTest {
 	@Test
 	public void insertUserTest() {
 		/*** Given ***/
-		UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(), "테스터별명", "주소11", "주소22", "3");
+		UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(), "테스터별명", "주소11", "주소22", "3",
+				"testfilename", "testrealfilename");
 		/*** When ***/
 		int insertUser = userService.insertUser(userVo);
 		/*** Then ***/

@@ -27,6 +27,7 @@
 UserVo userVo = (UserVo) request.getAttribute("userVo");
 %>
 <script>
+
 	$(function() {
 
 		//주소 검색 버튼이 클릭 되었을 때 다음주소API 팝업을 연다			
@@ -46,6 +47,18 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 	});
 </script>
 
+<script type="text/javascript">
+function initData(){
+	$("#userId").val("1234");
+	$("#userNm").val("테스터");
+	$("#userAlias").val("별명");
+	$("#pass").val("1234");
+	$("#reg_dt").val("2021.01.01");
+	$("#addr1").val("테스트주소1");
+	$("#addr2").val("테스트주소2");
+	$("#zipcode").val("123456");
+}
+</script>
 </head>
 
 <body>
@@ -60,7 +73,7 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 등록</h2>
 				<form class="form-horizontal" role="form"
-					action="${cp }/userRegist" method="post">
+					action="${cp }/userRegist" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="userid" value="" />
 
 					<div class="form-group">
@@ -68,7 +81,9 @@ UserVo userVo = (UserVo) request.getAttribute("userVo");
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
 								placeholder="사용자 아이디" value="${param.userid}">
+								<input type="file" class="form-control" name="profile">
 						</div>
+							
 					</div>
 
 					<div class="form-group">

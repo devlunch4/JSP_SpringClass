@@ -65,14 +65,14 @@
 		INSERT INTO users
 		(
 		userid,
-		usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		usernm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename
 		)
 		VALUES
 		(
 		#{userid},
 		#{usernm}, #{pass},
 		#{reg_dt}, #{alias}, #{addr1}, #{addr2},
-		#{zipcode}
+		#{zipcode}, #{filename}, #{realfilename}
 		)
 	</insert>
 

@@ -19,11 +19,11 @@ public class UserDaoTest {
 	@Before
 	public void setup() {
 		userDao = new UserDao();
-		//UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(),
-		//"테스터별명", "주소11", "주소22", "3");
+		// UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(),
+		// "테스터별명", "주소11", "주소22", "3");
 
 		// 삭제 테스트를 위한 입력
-		//userDao.insertUser(userVo);
+		// userDao.insertUser(userVo);
 
 		// @Before ==> @Test insertUser ==> @After
 		// 17+1(testUser) ==> -1(ddit_n)+1(ddit_n) ==>-1(testUser) = 17
@@ -102,7 +102,8 @@ public class UserDaoTest {
 		/*** Given ***/
 		// UserDaoI userDao = new UserDao();
 		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode,
-		UserVo userVo = new UserVo("ddit", "대덕인재", "pass", new Date(), "개발원ori", "대전 중앙로", "3층", "123");
+		UserVo userVo = new UserVo("ddit", "대덕인재", "pass", new Date(), "개발원ori", "대전 중앙로", "3층", "123", "testfilename",
+				"testrealfilename");
 
 		/*** When ***/
 		int updateCunt = userDao.modifyUser(userVo);
@@ -116,7 +117,8 @@ public class UserDaoTest {
 	public void insertUserTest() {
 
 		/*** Given ***/
-		UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(), "테스터별명", "주소11", "주소22", "3");
+		UserVo userVo = new UserVo("testUser", "테스터", "testpass", new Date(), "테스터별명", "주소11", "주소22", "3",
+				"testfilename", "testrealfilename");
 		/*** When ***/
 		int insertUser = userDao.insertUser(userVo);
 		/*** Then ***/

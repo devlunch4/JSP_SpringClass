@@ -38,7 +38,7 @@ public class DefaultParameterRequestWrapper extends HttpServletRequestWrapper {
 
 	@Override
 	public Enumeration<String> getParameterNames() {
-		//keyset은 collection 이므로 coollection에 적용이 가능
+		//keyset은 collection 이므로 collection에 적용이 가능
 		return Collections.enumeration(customMap.keySet());
 	}
 

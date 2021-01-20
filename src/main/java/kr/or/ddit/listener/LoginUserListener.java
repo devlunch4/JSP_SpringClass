@@ -18,6 +18,7 @@ public class LoginUserListener implements HttpSessionAttributeListener {
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent event) {
 		logger.debug("LoginUserListener IN attributeAdded");
+
 		if (event.getName().equals("S_USER")) {
 			UserVo user = (UserVo) event.getValue();
 			logger.debug("added user : {}", user.getUsernm());
@@ -31,11 +32,13 @@ public class LoginUserListener implements HttpSessionAttributeListener {
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent event) {
 		logger.debug("LoginUserListener IN attributeRemoved");
-		// 로그아웃시 map 객체에서 객체 제거
-		UserVo user = (UserVo) event.getValue();
-		logger.debug("removed user : {}", user.getUsernm());
-		users.remove(user.getUsernm());
 
+		// 로그아웃시 map 객체에서 객체 제거
+		if (event.getName().equals("S_USER")) { //추가
+			UserVo user = (UserVo) event.getValue();
+			logger.debug("removed user : {}", user.getUsernm());
+			users.remove(user.getUsernm());
+		}
 	}
 
 	@Override

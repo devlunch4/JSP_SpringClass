@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +20,9 @@ import org.slf4j.LoggerFactory;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
+import kr.or.ddit.util.FileUtil;
 
+@MultipartConfig
 @WebServlet("/userRegist")
 public class UserRegist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -57,9 +62,29 @@ public class UserRegist extends HttpServlet {
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");
 		String zipcode = req.getParameter("zipcode");
+
+		// 사용자가 profile 업로드한경우
+		// 1전송한 파일이름(filename
+		// 2파일 확장자
+		// 3서버에 저장할 파일이름(realfilename
+		// 4서버에 지정된 공간에 저장
+		Part profile = req.getPart("profile");
+
+		String filename = "";
+		String realFileName = "";
+		if (profile.getSize() > 0) {
+			filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
+			String fileExtension = FileUtil.getFileExtension(filename);
+			// brown / bronw.png ?? 확장자 뒤의 "." 처리를 FileUtil.getFileExtension return 값에서 처리함
+			realFileName = UUID.randomUUID().toString() + fileExtension;
+			// 저장위치 지정
+			profile.write("d:\\upload\\" + filename);
+		}
+
 		logger.debug("입력값들 중 id 확인 userid : {}", userid);
 		logger.debug("날짜입력값: reg_dt: {}, reg_dt_fm:{}", reg_dt, reg_dt_fm);
-		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode);
+		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode, filename,
+				realFileName);
 //		try {
 //			int insertUser = userService.insertUser(userVo);
 //			if (insertUser == 1) {

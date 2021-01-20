@@ -68,7 +68,11 @@ public class UserModify extends HttpServlet {
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");
 		String zipcode = req.getParameter("zipcode");
-		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode);
+		//String filename = req.getParameter("filename");
+		//String realfilename =req.getParameter("realfilename");
+		
+		
+		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode ,"","");
 		int updateCnt = userService.modifyUser(userVo);
 		if (updateCnt == 1) {
 			// 정상 수행시
