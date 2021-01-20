@@ -100,7 +100,7 @@ public class UserVo {
 	}
 
 	public String getFilename() {
-		return filename == null ? "" : filename;
+		return filename;
 	}
 
 	public void setFilename(String filename) {
@@ -108,11 +108,11 @@ public class UserVo {
 	}
 
 	public String getRealfilename() {
-		return realfilename == null ? "" : realfilename;
+		return realfilename;
 	}
 
 	public void setRealfilename(String realfilename) {
-		this.realfilename = realfilename;
+		this.realfilename=filename;
 	}
 
 	@Override

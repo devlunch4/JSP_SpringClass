@@ -46,7 +46,7 @@ public class FileUploadServlet extends HttpServlet {
 
 			// 서버에 저장할때 다른 사용자의 파일과 중복되지 않도록 생성한 파일 이름.
 			String realFileName = UUID.randomUUID().toString();
-			part.write("d:\\upload\\" + filename);
+			part.write("d:\\upload\\" + realFileName);
 		}
 
 		String filenamex = FileUtil.getFileNamex(part.getHeader("Content-Disposition"));

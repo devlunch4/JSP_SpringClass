@@ -78,10 +78,10 @@ public class UserRegist extends HttpServlet {
 			// brown / bronw.png ?? 확장자 뒤의 "." 처리를 FileUtil.getFileExtension return 값에서 처리함
 			realFileName = UUID.randomUUID().toString() + fileExtension;
 			// 저장위치 지정
-			profile.write("d:\\upload\\" + filename);
+			profile.write("d:\\upload\\" + realFileName);
 		}
 
-		logger.debug("입력값들 중 id 확인 userid : {}", userid);
+		logger.debug("입력값들 중 id 확인 realFileName : {}", realFileName);
 		logger.debug("날짜입력값: reg_dt: {}, reg_dt_fm:{}", reg_dt, reg_dt_fm);
 		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode, filename,
 				realFileName);

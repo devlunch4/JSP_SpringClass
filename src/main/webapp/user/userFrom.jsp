@@ -17,33 +17,25 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${cp }/css/dashboard.css"
-	rel="stylesheet">
-<link href="${cp }/css/blog.css"
-	rel="stylesheet">
+<link href="${cp }/css/dashboard.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 <script type="text/javascript">
 	//문서 로딩이 완료 되었을때
 	//사용자 수정 : method : get, action = /userModify
 	//사용자 수정 : method : get, action = /userDelete
 	//파라미터는 둘다 userid 하나만 있으면 가능
 	$(function() {
-		$("#modifyBtn").on(
-				"click",
-				function() {
-					$("#frm").attr("method", "get");
-					$("#frm").attr("action",
-							"${cp }/userModify");
-					$("#frm").submit();
-				});
+		$("#modifyBtn").on("click", function() {
+			$("#frm").attr("method", "get");
+			$("#frm").attr("action", "${cp }/userModify");
+			$("#frm").submit();
+		});
 
-		$("#deleteBtn").on(
-				"click",
-				function() {
-					$("#frm").attr("method", "post");
-					$("#frm").attr("action",
-							"${cp }/userDelete");
-					$("#frm").submit();
-				});
+		$("#deleteBtn").on("click", function() {
+			$("#frm").attr("method", "post");
+			$("#frm").attr("action", "${cp }/userDelete");
+			$("#frm").submit();
+		});
 	});
 </script>
 </head>
@@ -64,18 +56,22 @@
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 상세 조회</h2>
-				<form class="form-horizontal" role="form" id="frm">
-					<input type="hidden" name="userid" value="${user.userid }" />
+				<form class="form-horizontal" role="form" id="frm" >
+					<input type="hidden" name="userid" value="${user.userid }" /> 
+	<%-- 				<input
+						type="hidden" name="filename" value="${user.filename }" /> <input
+						type="hidden" name="realfilename" value="${user.realfilename }" /> --%>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img
-								src="${cp }/profile/${user.userid }.png">
+							<%-- <img src="${cp }/profile/${user.userid }.png" /> --%> 
+							
+							<a href="/profileDownload?userid=${user.userid }">
+							<img src="/profile?userid=${user.userid }" />
+							</a>
 						</div>
 					</div>
-
-
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>

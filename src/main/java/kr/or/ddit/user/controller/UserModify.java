@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +20,9 @@ import org.slf4j.LoggerFactory;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
+import kr.or.ddit.util.FileUtil;
 
+@MultipartConfig
 @WebServlet("/userModify")
 public class UserModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -68,11 +73,32 @@ public class UserModify extends HttpServlet {
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");
 		String zipcode = req.getParameter("zipcode");
-		//String filename = req.getParameter("filename");
-		//String realfilename =req.getParameter("realfilename");
+
+		// 선언
+//		String filename = "";
+//		String realfilename = "";
+		String filename = req.getParameter("filename");
+		String realfilename = req.getParameter("realfilename");
 		
-		
-		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode ,"","");
+//		사용자가 사진을 새롭게 전송을 했는지 여부 체크
+//		1.사진을 안보낸 경우 >> 기존값 유지
+//		2. 사진을 보낸경우 업로드시 생성된 filename,realfilename으로 변경
+//		profile 가져오기
+		Part profile = req.getPart("profile");
+
+		// if문 시작
+		if (profile.getSize() > 0) {
+			filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
+			String fileExtension = FileUtil.getFileExtension(filename);
+			realfilename = UUID.randomUUID().toString() + fileExtension;
+			logger.debug("사진 수정 저장 수행 완료");
+			profile.write("d:\\upload\\" + realfilename);
+			
+		}
+
+		UserVo userVo = new UserVo(userid, userNm, pass, reg_dt_fm, userAlias, addr1, addr2, zipcode, filename,
+				realfilename);
+
 		int updateCnt = userService.modifyUser(userVo);
 		if (updateCnt == 1) {
 			// 정상 수행시

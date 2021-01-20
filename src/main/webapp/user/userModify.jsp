@@ -17,10 +17,8 @@
 
 <%--common_lib.jsp == 공통 라이브러리 --%>
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${cp }/css/dashboard.css"
-	rel="stylesheet">
-<link href="${cp }/css/blog.css"
-	rel="stylesheet">
+<link href="${cp }/css/dashboard.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 
 <!-- 주소 입력 부분 다음 API 활용 -->
 <script
@@ -54,16 +52,22 @@
 		<%@ include file="/common/left.jsp"%>
 	</div>
 	<div class="container-fluid">
-		<%
-		UserVo user = (UserVo) request.getAttribute("user");
-		%>
+
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2 class="sub-header">사용자 정보 수정</h2>
-				<form class="form-horizontal" role="form"
-					action="${cp }/userModify"
-					method="post">
-					<input type="hidden" name="userid" value="${user.userid }" />
+				<form class="form-horizontal" role="form" action="${cp }/userModify"
+					method="post" enctype="multipart/form-data">
+					<input type="hidden" name="userid" value="${user.userid }" /> 
+
+
+					<div class="form-group">
+						<label for="userId" class="col-sm-2 control-label">사용자 사진</label>
+						<div class="col-sm-10">
+							<img src="${cp }/profile/${user.userid }.png" /> <input
+								type="file" class="form-control" id="profile" name="profile">
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
@@ -95,8 +99,7 @@
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
 								placeholder="사용자등록일"
 								value="<fmt:formatDate
-									value="${user.reg_dt }" pattern="yyyy.MM.dd" />"
-								readonly />
+									value="${user.reg_dt }" pattern="yyyy.MM.dd" />" />
 						</div>
 					</div>
 
@@ -112,7 +115,7 @@
 						<label for="addr1" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="주소" value="${user.addr1 }%>" readonly />
+								placeholder="주소" value="${user.addr1 }" readonly />
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소
