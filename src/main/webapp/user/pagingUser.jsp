@@ -81,6 +81,8 @@
 						<a class="btn btn-default pull-right"
 							href="${cp }/userRegist">사용자 등록</a>
 						<div class="text-center">
+						
+						
 							<ul class="pagination">
 								<%--pagination 값이 4이므로 1부터 4까지 4번 반복된다
 							전체 사용자수 16명
@@ -93,7 +95,12 @@
 								<c:forEach begin="1" end="${pagination }" var="i">
 									<c:choose>
 										<c:when test="${pageVo.page == i }">
+										
+										
 											<li class="active"><span>${i }</span></li>
+											
+											
+											
 										</c:when>
 										<c:otherwise>
 											<li><a

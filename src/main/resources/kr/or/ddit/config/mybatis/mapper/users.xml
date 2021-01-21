@@ -55,7 +55,9 @@
 		addr1 =
 		#{addr1},
 		addr2 = #{addr2},
-		zipcode = #{zipcode}
+		zipcode = #{zipcode},
+		filename =#{filename},
+		realfilename= #{realfilename}
 		WHERE userid = #{userid}
 	</update>
 
