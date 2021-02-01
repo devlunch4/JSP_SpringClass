@@ -24,6 +24,13 @@ public class LoginController extends HttpServlet {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	private UserServiceI userService = new UserService();
 
+	// 20210201 추가
+	//jsp 프로젝트에서 localhost/login.jsp==>model1
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("login.jsp").forward(req, resp);
+	}
+
 	// 요청 메소드와 관련없이 서블릿이 동작하게 하려면
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -61,7 +68,7 @@ public class LoginController extends HttpServlet {
 		// session에 데이터 베이스를 조회한 사용자 정보를 (userVo)를 저장
 		if (user != null && pass.equals(user.getPass())) {
 			logger.debug("로그인 성공 >> 메인페이지 진입");
-			
+
 			HttpSession session = req.getSession();
 			session.setAttribute("S_USER", user);
 			req.getRequestDispatcher("/main.jsp").forward(req, resp);
