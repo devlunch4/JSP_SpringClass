@@ -32,9 +32,8 @@ public class SessionCheckFilter implements Filter {
 		String uri = req.getRequestURI();
 		logger.debug("request uri : {}", uri);
 		// !!!!!! 세션체크가 필요없는 주소 : login.jsp / loginController
-		if (uri.endsWith("login.jsp") || uri.endsWith("loginController")  
-||uri.contains("/css/")|| uri.contains("/js/") || uri.contains("/image/")
-				) {
+		if (uri.endsWith("login.jsp") || uri.endsWith("loginController") || uri.contains("/css/")
+				|| uri.contains("/js/") || uri.contains("/image/")) {
 			logger.debug("세션체크가 필요없는 주소 진입 [login.jsp / loginController]");
 			chain.doFilter(request, response);
 		}
